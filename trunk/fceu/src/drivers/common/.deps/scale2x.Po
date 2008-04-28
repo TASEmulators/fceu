@@ -1,0 +1,10 @@
+drivers/common/scale2x.o drivers/common/scale2x.o:  \
+ drivers/common/scale2x.c drivers/common/scale2x.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h
+
+drivers/common/scale2x.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/assert.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:

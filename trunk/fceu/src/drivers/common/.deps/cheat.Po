@@ -1,0 +1,35 @@
+drivers/common/cheat.o drivers/common/cheat.o: drivers/common/cheat.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h \
+  drivers/common/../../driver.h drivers/common/../../types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  drivers/common/../../git.h drivers/common/../../debug.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/ctype.h:
+
+drivers/common/../../driver.h:
+
+drivers/common/../../types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+drivers/common/../../git.h:
+
+drivers/common/../../debug.h:

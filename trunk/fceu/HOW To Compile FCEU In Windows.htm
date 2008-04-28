@@ -1,0 +1,103 @@
+<?xml version="1.0"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+               "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><title>NESVideos / HOW To Compile FCEU In Windows</title><link rel="stylesheet" href="css/.css" type="text/css" /><link rel="shortcut icon" href="css/.ico" type="image/x-icon" /><link rel="alternate" href="movies.rss" type="application/rss+xml" title="Nesvideos RSS" /><script type="text/javascript" src="css/search_highlight.js"></script></head><body><table width="100%" border="0"><tr><td valign="top" class="menu"><table class="banner"><tr><td>Tool-assisted superplay movies</td></tr></table><a href="FrontPage.html">Front page</a><br/>
+<a href="RecentChanges.html">Recent changes</a><br/>
+<a href="FAQ.html">Answers (FAQ)</a>
+<p/><a href="queue.cgi">Submissions</a><br/>
+<a href="players.cgi">Players</a><br/>
+<a href="FrontPage.html">Movies</a>
+<p/><a href="forum/">Discussion forums</a><br/>
+<a href="random.cgi">Random page</a>
+<p/><a href="wiki.cgi?page=HOWToCompileFCEUInWindows&amp;mode=edit">Edit this page</a>
+<p/><a href="Login.html">Logged in</a> as nitsuja
+<p/><hr/>
+<small>Time (GMT+2):<br/>2005-11-13 03:32:14</small>
+</td><td valign="top" class="page"><h1>HOW To Compile FCEU In Windows</h1><h2><a name="directions_on_compiling_blip_s_fceu_for_windows_"></a>Directions on compiling blip's FCEU for Windows.</h2><div class="deeper">
+<table class="toc" cellspacing="0"><tr><td valign="top" class="toc">Table of contents<br/><table><tr><td width="50%" valign="middle" align="left" nowrap="nowrap"><div class="toc2"><a href="#directions_on_compiling_blip_s_fceu_for_windows_">Directions on compiling blip's FCEU for Windows.
+</a></div><div class="toc3"><a href="#things_you_need_">Things you need
+</a></div><div class="toc4"><a href="#mingw_and_msys_">MinGW and MSYS
+</a></div><div class="toc4"><a href="#libsdl_for_mingw_">libSDL for MinGW
+</a></div><div class="toc4"><a href="#the_directx_7a_headers_and_libraries_for_mingw_">The DirectX 7a headers and libraries for MinGW
+</a></div><div class="toc4"><a href="#zlib_">Zlib
+</a></div><div class="toc4"><a href="#windows_api_libraries_">Windows API libraries
+</a></div></td><td width="50%" valign="middle" align="left" nowrap="nowrap"><div class="toc4"><a href="#fceu_source_">FCEU source
+</a></div><div class="toc3"><a href="#things_to_do_">Things to do
+</a></div><div class="toc4"><a href="#install_mingw_and_msys_">Install MinGW and MSYS.
+</a></div><div class="toc4"><a href="#install_the_directx_7_headers_and_libraries_and_windows_api_libraries_">Install the DirectX 7 headers and libraries and Windows API libraries
+</a></div><div class="toc4"><a href="#install_libsdl_">Install libSDL.
+</a></div><div class="toc4"><a href="#install_zlib_">Install Zlib
+</a></div><div class="toc4"><a href="#compile_fceu_">Compile fceu
+</a></div><div class="toc4"><a href="#strip_the_executable_to_make_it_small_">Strip the executable to make it small
+</a></div></td></tr></table></td></tr></table>
+<h3><a name="things_you_need_"></a>Things you need</h3><div class="deeper">
+<h4><a name="mingw_and_msys_"></a>MinGW and MSYS</h4><div class="deeper">
+You can find them at <a href="http://www.mingw.org/"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://www.mingw.org/</a>.
+Look for the Current MSYS and Current MinGW.
+Everything else can be ignored unless you know
+what you're doing.
+</div><h4><a name="libsdl_for_mingw_"></a>libSDL for MinGW</h4><div class="deeper">
+You can find it at <a href="http://www.libsdl.org/"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://www.libsdl.org/</a>.
+<pre>
+</pre></div><h4><a name="the_directx_7a_headers_and_libraries_for_mingw_"></a>The DirectX 7a headers and libraries for MinGW</h4><div class="deeper">
+You can find it at <a href="http://alleg.sourceforge.net/index.html"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://alleg.sourceforge.net/index.html</a>
+<pre>
+</pre></div><h4><a name="zlib_"></a>Zlib</h4><div class="deeper">
+You can find it at <a href="http://www.zlib.net/"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://www.zlib.net/</a>
+</div><h4><a name="windows_api_libraries_"></a>Windows API libraries</h4><div class="deeper">
+<a href="http://www.mingw.org/download.shtml"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://www.mingw.org/download.shtml</a>
+</div><h4><a name="fceu_source_"></a>FCEU source</h4><div class="deeper">
+Which I think you should have since you want to compile it. ;)
+</div></div><h3><a name="things_to_do_"></a>Things to do</h3><div class="deeper">
+<h4><a name="install_mingw_and_msys_"></a>Install MinGW and MSYS.</h4><div class="deeper">
+Simply run the EXEs and follow the directions. Install MSYS <em>AFTER</em> MinGW
+</div><h4><a name="install_the_directx_7_headers_and_libraries_and_windows_api_libraries_"></a>Install the DirectX 7 headers and libraries and Windows API libraries</h4><div class="deeper">
+Simply unzip the archive to <tt>C:\MinGW</tt>.<br/>
+There will be an include folder
+and a lib folder. Do NOT extract to <tt>C:\MinGW\dx70_mgw</tt>.<br/>
+Or you can extract
+to some folder and copy the include and lib folder over the <tt>C:\MinGW</tt>
+directory. You should do the same thing with Windows API libraries.<br/>
+You must rename <tt>libmsacm32.a</tt> to <tt>libacm32.a</tt> in your <tt>C:\MinGW\lib</tt> directory.
+</div><h4><a name="install_libsdl_"></a>Install libSDL.</h4><div class="deeper">
+Start MSYS and put <tt>SDL-devel-1.x.x.mingw.tar.gz</tt> in your home directory.<br/>
+The path will be something like <tt>c:\msys\1.0\home\|username|</tt>
+<p/>Untar the archive
+<pre>  gzip -cd SDL-devel-1.x.x.mingw.tar.gz | tar x<br/>
+</pre>Now build libSDL
+<pre>  make install-sdl prefix=/mingw
+</pre></div><h4><a name="install_zlib_"></a>Install Zlib</h4><div class="deeper">
+Stay in MSYS, or reopen it if you closed it.<br/>
+Put the <tt>zlib-1.x.x.tar.gz</tt> archive in your MSYS home dir.
+<p/>Untar the archive
+<pre>  tar xvfz zlib-1.x.x.tar.gz
+</pre>or for bz2
+<pre>  tar xvfj zlib-1.x.x.tar.bz2
+</pre>Now change to zlib directory
+<pre>  cd zlib-1.x.x
+</pre>Configure and build zlib
+<pre>  ./configure --prefix=/mingw
+  make &amp;&amp; make install
+</pre></div><h4><a name="compile_fceu_"></a>Compile fceu</h4><div class="deeper">
+Stay in MSYS, or reopen it if you closed it.<br/>
+Extract <tt>fceu-0.98.12-blip.src.rar</tt> to <tt>c:\msys\1.0\home\|username|</tt> .
+<p/>Change to the fceu directory
+<pre>  cd fceu-0.98.12-blip.src
+</pre>Configure the Makefile
+<pre>  ./configure --with-nativewin32
+</pre>or for opengl
+<pre>  ./configure --with-nativewin32 --with-opengl
+</pre>Build the resource file
+<pre>  windres -o src/res.o src/drivers/win/res.res
+</pre>Now make
+<pre>  make
+</pre></div><h4><a name="strip_the_executable_to_make_it_small_"></a>Strip the executable to make it small</h4><div class="deeper">
+<b>This is optional.</b><br/>
+<p/>Staying in MSYS, run the strip program.
+<pre>  strip -s src/fceu.exe
+</pre>After being &quot;stripped&quot;, I suggest using upx, <a href="http://upx.sourceforge.net/"><img src="css/extlink.gif" class="extlink" alt="(ext)"/> http://upx.sourceforge.net/</a> , to compress the executable.
+<p/>The program should be in your home directory under <tt>c:\msys\1.0\home\|username|\fceu-0.98.12-blip.src\src\fceu.exe</tt>
+<br clear="all"/>
+</div></div></div><hr/>
+<p/><a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=17833&amp;t=73"><img src="http://www.spreadfirefox.com/community/images/affiliates/Buttons/88x31/rediscover.gif" class="embedright" alt="Get Firefox!" title="Get Firefox!" style="width:88px;height:31px;margin-left:3px;margin-right:3px"/></a><a href="donate.cgi"><img src="css/paypal-but04.gif" class="embedright" alt="PayPal Donate" style="margin-left:3px;margin-right:3px"/></a>HOWToCompileFCEUInWindows last edited by nitsuja on 2005-11-13 03:32:13<br/><small><a rel="nofollow" href="wiki.cgi?page=HOWToCompileFCEUInWindows&amp;mode=edit">Edit page</a> | <a href="pageinfo.cgi?page=HOWToCompileFCEUInWindows">Page info and history</a> | <a rel="nofollow" href="diff.cgi?page=HOWToCompileFCEUInWindows&amp;rev=9">Latest diff</a> | <a href="ref.cgi?page=HOWToCompileFCEUInWindows">List referrers</a></small>
+<script type='text/javascript'><!--
+googleSearchHighlight()
+--></script></td></tr></table></body></html>

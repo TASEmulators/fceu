@@ -1,0 +1,32 @@
+mappers/emu2413.o mappers/emu2413.o: mappers/emu2413.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/math.h \
+  mappers/emu2413.h mappers/emutypes.h mappers/vrc7tone.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/math.h:
+
+mappers/emu2413.h:
+
+mappers/emutypes.h:
+
+mappers/vrc7tone.h:

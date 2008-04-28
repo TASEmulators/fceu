@@ -1,0 +1,21 @@
+md5.o md5.o: md5.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  md5.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+md5.h:

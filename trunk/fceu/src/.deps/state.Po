@@ -1,0 +1,80 @@
+state.o state.o: state.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/getopt.h \
+  types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  x6502.h x6502struct.h fceu.h git.h driver.h debug.h sound.h endian.h \
+  fds.h general.h state.h movie.h memory.h ppu.h netplay.h video.h \
+  input.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/unistd.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/io.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/process.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/getopt.h:
+
+types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+x6502.h:
+
+x6502struct.h:
+
+fceu.h:
+
+git.h:
+
+driver.h:
+
+debug.h:
+
+sound.h:
+
+endian.h:
+
+fds.h:
+
+general.h:
+
+state.h:
+
+movie.h:
+
+memory.h:
+
+ppu.h:
+
+netplay.h:
+
+video.h:
+
+input.h:

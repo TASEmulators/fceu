@@ -1,0 +1,1 @@
+mappers/__226.o mappers/__226.o: mappers/__226.c

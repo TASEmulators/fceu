@@ -1,0 +1,50 @@
+vsuni.o vsuni.o: vsuni.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  x6502.h x6502struct.h fceu.h git.h driver.h debug.h input.h netplay.h \
+  vsuni.h state.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+x6502.h:
+
+x6502struct.h:
+
+fceu.h:
+
+git.h:
+
+driver.h:
+
+debug.h:
+
+input.h:
+
+netplay.h:
+
+vsuni.h:
+
+state.h:

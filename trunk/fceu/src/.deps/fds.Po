@@ -1,0 +1,63 @@
+fds.o fds.o: fds.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h \
+  types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  x6502.h x6502struct.h fceu.h git.h driver.h debug.h fds.h sound.h \
+  general.h state.h file.h memory.h cart.h md5.h netplay.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/string.h:
+
+types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+x6502.h:
+
+x6502struct.h:
+
+fceu.h:
+
+git.h:
+
+driver.h:
+
+debug.h:
+
+fds.h:
+
+sound.h:
+
+general.h:
+
+state.h:
+
+file.h:
+
+memory.h:
+
+cart.h:
+
+md5.h:
+
+netplay.h:

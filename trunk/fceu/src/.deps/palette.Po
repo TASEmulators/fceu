@@ -1,0 +1,56 @@
+palette.o palette.o: palette.c \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/math.h \
+  types.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h \
+  C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h \
+  fceu.h git.h driver.h debug.h general.h palette.h palettes/palettes.h \
+  palettes/rp2c04001.h palettes/rp2c04002.h palettes/rp2c04003.h \
+  palettes/rp2c05004.h
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdio.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/_mingw.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stddef.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/include/stdarg.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/sys/types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdlib.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/math.h:
+
+types.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/inttypes.h:
+
+C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/../../../../include/stdint.h:
+
+fceu.h:
+
+git.h:
+
+driver.h:
+
+debug.h:
+
+general.h:
+
+palette.h:
+
+palettes/palettes.h:
+
+palettes/rp2c04001.h:
+
+palettes/rp2c04002.h:
+
+palettes/rp2c04003.h:
+
+palettes/rp2c05004.h:
