@@ -216,7 +216,7 @@ static void CloseGame(void)
   }
   if(FCEUGameInfo->type!=GIT_NSF)
    FCEU_FlushGameCheats(0,0);
-  GameInterface(GI_CLOSE);
+  GameInterface=GI_CLOSE; // fixes crash when loading game after an error - was "GameInterface(GI_CLOSE);"
   ResetExState(0,0);
   CloseGenie();
   free(FCEUGameInfo);
