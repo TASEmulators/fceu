@@ -19,6 +19,7 @@
  */
 
 #include "mapinc.h"
+#include "../blarg-sound/BlarggApu.h"
 
 static uint16 IRQCount;
 static uint8 IRQa;
@@ -28,11 +29,13 @@ static uint8 IRAM[128];
 
 static DECLFR(AWRAM)
 {
+  BlarggRead();
   return(WRAM[A-0x6000]);
 }
 
 static DECLFW(BWRAM)
 {
+  BlarggWrite(A, V);
   WRAM[A-0x6000]=V;
 }
 
@@ -86,6 +89,7 @@ static void FP_FASTAPASS(1) NamcoIRQHook(int a)
 
 static DECLFR(Namco_Read4800)
 {
+  BlarggRead();
   uint8 ret=IRAM[dopol&0x7f];
   /* Maybe I should call NamcoSoundHack() here? */
   if(!fceuindbg)
@@ -96,11 +100,13 @@ static DECLFR(Namco_Read4800)
 
 static DECLFR(Namco_Read5000)
 {
+  BlarggRead();
   return(IRQCount);
 }
 
 static DECLFR(Namco_Read5800)
 {
+  BlarggRead();
   return(IRQCount>>8);
 }
 
@@ -168,6 +174,9 @@ static void FixCache(int a,int V)
 static DECLFW(Mapper19_write)
 {
   A&=0xF800;
+
+  BlarggWrite(A, V);
+
   if(A>=0x8000 && A<=0xb800)
     DoCHRRAMROM((A-0x8000)>>11,V);
   else switch(A)
@@ -387,6 +396,7 @@ void Mapper19_ESI(void)
 
 void NSFN106_Init(void)
 {
+  BlarggEnableNamco();
   SetWriteHandler(0xf800,0xffff,Mapper19_write);
   SetWriteHandler(0x4800,0x4fff,Mapper19_write);
   SetReadHandler(0x4800,0x4fff,Namco_Read4800);
@@ -398,6 +408,7 @@ static int battery=0;
 static void N106_Power(void)
 {
   int x;
+  BlarggEnableNamco();
   SetReadHandler(0x8000,0xFFFF,CartBR);
   SetWriteHandler(0x8000,0xffff,Mapper19_write);
   SetWriteHandler(0x4020,0x5fff,Mapper19_write);
@@ -441,6 +452,8 @@ void Mapper19_Init(CartInfo *info)
   if(FSettings.SndRate)
     Mapper19_ESI();
 
+  BlarggEnableNamco();
+  
   AddExState(WRAM, 8192, 0, "WRAM");
   AddExState(IRAM, 128, 0, "WRAM");
   AddExState(N106_StateRegs, ~0, 0, 0);

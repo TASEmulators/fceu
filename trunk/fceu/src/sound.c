@@ -32,6 +32,10 @@
 #include "state.h"
 #include "wave.h"
 
+
+#include "BlarggApu.h"
+
+
 static uint32 wlookup1[32];
 static uint32 wlookup2[203];
 
@@ -190,6 +194,7 @@ static void SQReload(int x, uint8 V)
 
 static DECLFW(Write_PSG)
 {
+ BlarggWrite(A, V);
  A&=0x1F;
  switch(A)
  {
@@ -262,6 +267,7 @@ static DECLFW(Write_PSG)
 
 static DECLFW(Write_DMCRegs)
 {
+ BlarggWrite(A, V);
  A&=0xF;
 
  switch(A)
@@ -292,7 +298,8 @@ static DECLFW(Write_DMCRegs)
 
 static DECLFW(StatusWrite)
 {
-  int x;
+ BlarggWrite(A, V);
+	int x;
 
   DoSQ1();
   DoSQ2();
@@ -318,6 +325,7 @@ static DECLFW(StatusWrite)
 
 static DECLFR(StatusRead)
 {
+ BlarggRead();
    int x;
    uint8 ret;
 
@@ -932,6 +940,7 @@ static void RDoNoise(void)
 
 DECLFW(Write_IRQFM)
 {
+ BlarggWrite(A, V);
  V=(V&0xC0)>>6;
  fcnt=0;
  if(V&0x2)
@@ -1159,6 +1168,8 @@ void SetSoundVariables(void)
 
 void FCEUI_Sound(int Rate)
 {
+ BlarggSetSampleRate(Rate);
+
  FSettings.SndRate=Rate;
  SetSoundVariables();
 }

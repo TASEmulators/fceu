@@ -20,6 +20,8 @@
 
 #include "mapinc.h"
 
+#include "../blarg-sound/BlarggApu.h"
+
 static void (*sfun[3])(void);
 
 #define vrctemp mapbyte1[0]
@@ -59,16 +61,19 @@ static DECLFW(VRC6SW)
         A&=0xF003;
         if(A>=0x9000 && A<=0x9002)
         {
+         BlarggWrite(A, V);
          VPSG[A&3]=V;
          if(sfun[0]) sfun[0]();
         }
         else if(A>=0xa000 && A<=0xa002)
         {
+         BlarggWrite(A, V);
          VPSG[4|(A&3)]=V;
          if(sfun[1]) sfun[1]();
         }
         else if(A>=0xb000 && A<=0xb002)
         {
+         BlarggWrite(A, V);
          VPSG2[A&3]=V;
          if(sfun[2]) sfun[2]();
         }
@@ -348,6 +353,8 @@ static void VRC6_ESI(void)
 
 void Mapper24_init(void)
 {
+        fprintf(stderr, "*** VRC6 ***\n");
+        BlarggEnableVRC6();
         SetWriteHandler(0x8000,0xffff,Mapper24_write);
         VRC6_ESI();
         MapIRQHook=KonamiIRQHook;
@@ -356,6 +363,8 @@ void Mapper24_init(void)
 
 void Mapper26_init(void)
 {
+        fprintf(stderr, "*** VRC6 ***\n");
+        BlarggEnableVRC6();
         SetWriteHandler(0x8000,0xffff,Mapper24_write);
         VRC6_ESI();
         MapIRQHook=KonamiIRQHook;
@@ -364,6 +373,8 @@ void Mapper26_init(void)
 
 void NSFVRC6_Init(void)
 {
+        fprintf(stderr, "*** VRC6 ***\n");
+        BlarggEnableVRC6();
         VRC6_ESI();
         SetWriteHandler(0x8000,0xbfff,VRC6SW);
 }

@@ -18,7 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-
 LPDIRECTSOUND ppDS=0;           /* DirectSound object. */
 LPDIRECTSOUNDBUFFER ppbuf=0;    /* Primary buffer object. */
 LPDIRECTSOUNDBUFFER ppbufsec=0; /* Secondary buffer object. */
@@ -39,6 +38,8 @@ WAVEFORMATEX wf;
 
 int bittage;
 static int mute=0;				/* TODO:  add to config? add to GUI. */
+
+int EnableBlarggSound=0;
 
 void TrashSound(void)
 {
@@ -441,6 +442,7 @@ static void UpdateSD(HWND hwndDlg)
  CheckDlgButton(hwndDlg,124,(soundoptions&SO_GFOCUS)?BST_CHECKED:BST_UNCHECKED);
  CheckDlgButton(hwndDlg,130,(soundoptions&SO_MUTEFA)?BST_CHECKED:BST_UNCHECKED);
  CheckDlgButton(hwndDlg,131,(soundoptions&SO_OLDUP)?BST_CHECKED:BST_UNCHECKED);
+ CheckDlgButton(hwndDlg,132,(soundoptions&SO_BLARGG)?BST_CHECKED:BST_UNCHECKED);
  SendDlgItemMessage(hwndDlg,129,CB_SETCURSEL,soundquality,(LPARAM)(LPSTR)0);
  t=0;
  if(soundrate==22050) t=1;
@@ -582,6 +584,9 @@ BOOL CALLBACK SoundConCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
                                    soundo=InitSound();
                                    UpdateSD(hwndDlg);
                                   }
+                                  break;
+                         case 132:soundoptions^=SO_BLARGG;
+                                  EnableBlarggSound^= 1;
                                   break;
                          case 126:soundo=!soundo;
                                   if(!soundo) TrashSound();

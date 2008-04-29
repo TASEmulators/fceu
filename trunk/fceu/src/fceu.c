@@ -53,6 +53,10 @@
 #include  "crc32.h"
 #include  "vsuni.h"
 
+#include "BlarggApu.h"
+
+int EnableBlarggSound; /* set to 0 to disable Blargg sound, nonzero to enable */
+
 uint64 timestampbase;
 
 
@@ -510,6 +514,13 @@ void FCEUI_Emulate(uint8 **pXBuf, int32 **SoundBuf, int32 *SoundBufSize, int ski
  *SoundBuf=WaveFinal;
  *SoundBufSize=ssize;
 
+ if(EnableBlarggSound)
+ {
+   *SoundBufSize = BlarggGetSamplesAvail();
+   *SoundBuf     = (int32*)BlarggGetSoundBuffer();
+   BlarggEndFrame();
+ }
+
  if(EmulationPaused&2)
  {
   EmulationPaused = 1;          // restore paused flag
@@ -786,4 +797,3 @@ void FCEUI_Rewind(void)
 		RewindCounter = 0;
 	}
 }
-

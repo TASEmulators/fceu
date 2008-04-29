@@ -1,0 +1,16 @@
+Game-music-emu 0.5.2
+	[[Blip buffer 0.4.1
+		CONFIRMED]]
+	[[NES snd apu 0.1.8 approximately
+		VERSION STRINGS]]
+
+	EVERYTHING, EXCEPT TYPES:
+		double for clock_rate, instead of long
+		
+		clocks (blip_time_t, blip_resample_time_t, factor, etc)
+			measured in long long, not long
+		
+		BLIP_BUFFER_ACCURACY is 29, not 16
+		BLIP_PHASE_BITS is 7, not 6
+		
+		Default freq is 48000 not 44100

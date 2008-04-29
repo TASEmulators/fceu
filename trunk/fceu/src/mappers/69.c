@@ -20,6 +20,8 @@
 
 #include "mapinc.h"
 
+#include "../blarg-sound/BlarggApu.h"
+
 static void AYSound(int Count);
 static void AYSoundHQ(void);
 static void DoAYSQ(int x);
@@ -44,11 +46,13 @@ static DECLFR(SUN5AWRAM)
 
 static DECLFW(Mapper69_SWL)
 {
+  BlarggWrite(0xC000, V);
   sunindex=V%14;
 }
 
 static DECLFW(Mapper69_SWH)
 {
+BlarggWrite(0xE000, V);
              int x;
              GameExpSound.Fill=AYSound;
              GameExpSound.HiFill=AYSoundHQ;
@@ -240,6 +244,7 @@ void Mapper69_init(void)
 
  SetupCartPRGMapping(0x10,WRAM,8192,1);
 
+ BlarggEnableFME7();
  SetWriteHandler(0x8000,0xbfff,Mapper69_write);
  SetWriteHandler(0xc000,0xdfff,Mapper69_SWL);
  SetWriteHandler(0xe000,0xffff,Mapper69_SWH);

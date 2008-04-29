@@ -25,6 +25,8 @@
 #include "fceu.h"
 #include "sound.h"
 
+#include "BlarggApu.h"
+
 X6502 X;
 
 #ifdef FCEUDEF_DEBUGGER
@@ -465,6 +467,7 @@ static void X6502_RunDebug(int32 cycles)
    cycles*=16;    // 16*4=64
 
   _count+=cycles;
+  BlarggWillExecute(cycles);
 
   while(_count>0)
   {
@@ -602,6 +605,7 @@ void X6502_Run(int32 cycles)
    cycles*=16;    // 16*4=64
 
   _count+=cycles;
+  BlarggWillExecute(cycles);
 
   while(_count>0)
   {

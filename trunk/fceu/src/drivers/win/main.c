@@ -174,6 +174,7 @@ static volatile int userpause=0;
 #define SO_D16VOL     8
 #define SO_MUTEFA     16
 #define SO_OLDUP      32
+#define SO_BLARGG     64
 
 #define GOO_DISABLESS   1       /* Disable screen saver when game is loaded. */
 #define GOO_CONFIRMEXIT 2       /* Confirmation before exiting. */
@@ -379,11 +380,14 @@ int main(int argc,char *argv[])
 	else if(eoptions&EO_FOAFTERSTART)
 		LoadNewGamey(hAppWnd, 0);
 
-  if(MovieToLoad)
-  {
-     FCEUI_LoadMovie(MovieToLoad, 1, 0);
-     MovieToLoad = NULL;
-  }
+ if(MovieToLoad)
+ {
+  FCEUI_LoadMovie(MovieToLoad, 1, 0);
+  MovieToLoad = NULL;
+ }
+
+ if(soundoptions&SO_BLARGG)
+  EnableBlarggSound = 1;
 
 doloopy:
 	UpdateFCEUWindow();  
@@ -400,9 +404,6 @@ doloopy:
 			static int stopCount=0;
 			if(FCEUI_EmulationPaused() & 1)
 			{
-				//if(stopCount==0)
-					//UpdateMemWatch();
-
 				stopCount++;
 				if(stopCount > 8)
 				{
@@ -425,7 +426,6 @@ doloopy:
 			}
 			else
 			{
-				//UpdateMemWatch();
 				stopCount=0;
 			}
 		}
@@ -490,15 +490,6 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 		{
 			skipcount = 0;
 			FCEUD_BlitScreen(XBuf);
-			if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999) {
-				UpdateMemWatch();
-				UpdateDebugger();
-			}
-			else if(!FCEUI_EmulationPaused() && !(((FCEUD_GetTime()/10000)*10)%MemToolsUpdateSpeed))
-			{
-				UpdateMemWatch();
-				UpdateDebugger();
-			}
 		}
 		else
 			skipcount++;
@@ -537,15 +528,6 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 				{
 					skipcount = 0;
 					FCEUD_BlitScreen(XBuf);
-					if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999) {
-						UpdateMemWatch();
-						UpdateDebugger();
-					}
-					else if(!FCEUI_EmulationPaused() && !(((FCEUD_GetTime()/10000)*10)%MemToolsUpdateSpeed))
-					{
-					  UpdateMemWatch();
-					  UpdateDebugger();
-					}
 				}
 				else
 				{
@@ -629,15 +611,6 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 				if((!skipthis && !NoWaiting) || (skipcount >= maxskip))
 				{
 					FCEUD_BlitScreen(XBuf);
-					if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999) {
-						UpdateMemWatch();
-						UpdateDebugger();
-					}
-					else if(!FCEUI_EmulationPaused() && !(((FCEUD_GetTime()/10000)*10)%MemToolsUpdateSpeed))
-					{
-						UpdateMemWatch();
-						UpdateDebugger();
-					}
 					skipcount = 0;
 				}
 				else
@@ -650,6 +623,17 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 		FCEUD_UpdateInput();
 
 	} // end of !(old sound code) block
+
+	// Memory Tools windows update
+	if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999) {
+		UpdateMemWatch();
+		UpdateDebugger();
+	}
+	else if(!FCEUI_EmulationPaused() && !(((FCEUD_GetTime()/10000)*10)%MemToolsUpdateSpeed))
+	{
+		UpdateMemWatch();
+		UpdateDebugger();
+	}
 }
 
 /*
@@ -702,4 +686,3 @@ void FCEUD_ResetStopframe(int opt)
 {
  if (EnablePauseAfterPlayback) FCEUMOV_ResetStopframe(opt);
 }
-

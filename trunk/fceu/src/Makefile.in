@@ -143,7 +143,7 @@ bin_PROGRAMS = fceu
 
 
 # soundexp.c
-fceu_SOURCES = x6502.c fceustr.c cart.c cheat.c crc32.c debug.c endian.c fceu.c fds.c file.c filter.c general.c ines.c input.c md5.c memory.c netplay.c nsf.c palette.c ppu.c sound.c state.c unif.c video.c vsuni.c wave.c movie.c unzip.c boards/__dummy_mapper.c boards/01-222.c boards/112.c boards/117.c boards/164.c boards/183.c boards/185.c boards/186.c boards/187.c boards/189.c boards/208.c boards/222.c boards/235.c boards/43.c boards/57.c boards/603-5052.c boards/68.c boards/8157.c boards/8237.c boards/88.c boards/90.c boards/95.c boards/a9711.c boards/addrlatch.c boards/bmc13in1jy110.c boards/bmc42in1r.c boards/bmc64in1nr.c boards/bmc70in1.c boards/bonza.c boards/datalatch.c boards/deirom.c boards/dream.c boards/edu2000.c boards/fk23c.c boards/h2288.c boards/karaoke.c boards/kof97.c boards/konami-qtai.c boards/malee.c boards/mmc1.c boards/mmc3.c boards/mmc5.c boards/n106.c boards/n-c22m.c boards/novel.c boards/sachen.c boards/sheroes.c boards/sl1632.c boards/subor.c boards/super24.c boards/supervision.c boards/t-262.c boards/tengen.c boards/199.c input/cursor.c input/zapper.c input/powerpad.c input/arkanoid.c input/shadow.c input/fkb.c input/fkb.h input/hypershot.c input/mahjong.c input/oekakids.c input/ftrainer.c input/quiz.c input/toprider.c input/bworld.c input/suborkb.c mappers/__226.c mappers/15.c mappers/151.c mappers/16.c mappers/17.c mappers/18.c mappers/193.c mappers/200.c mappers/201.c mappers/202.c mappers/203.c mappers/204.c mappers/21.c mappers/212.c mappers/213.c mappers/214.c mappers/215.c mappers/217.c mappers/22.c mappers/225.c mappers/227.c mappers/228.c mappers/229.c mappers/23.c mappers/230.c mappers/231.c mappers/232.c mappers/234.c mappers/240.c mappers/241.c mappers/242.c mappers/244.c mappers/246.c mappers/24and26.c mappers/25.c mappers/255.c mappers/27.c mappers/32.c mappers/33.c mappers/40.c mappers/41.c mappers/42.c mappers/43.c mappers/46.c mappers/50.c mappers/51.c mappers/59.c mappers/6.c mappers/60.c mappers/61.c mappers/62.c mappers/65.c mappers/67.c mappers/68.c mappers/69.c mappers/71.c mappers/72.c mappers/73.c mappers/75.c mappers/76.c mappers/77.c mappers/79.c mappers/8.c mappers/80.c mappers/82.c mappers/83.c mappers/85.c mappers/86.c mappers/89.c mappers/91.c mappers/92.c mappers/97.c mappers/99.c mappers/emu2413.c mappers/mmc2and4.c mappers/simple.c drivers/common/args.c drivers/common/cheat.c drivers/common/config.c drivers/common/vidblit.c drivers/common/hq2x.c drivers/common/hq3x.c drivers/common/scale2x.c drivers/common/scale3x.c drivers/common/scalebit.c $(sexyal_SOURCES) $(fceud_SOURCES)
+fceu_SOURCES = x6502.c fceustr.c cart.c cheat.c crc32.c debug.c endian.c fceu.c fds.c file.c filter.c general.c ines.c input.c md5.c memory.c netplay.c nsf.c palette.c ppu.c sound.c state.c unif.c video.c vsuni.c wave.c movie.c unzip.c blarg-sound/BlarggApu.cpp blarg-sound/gme/Blip_Buffer.cpp blarg-sound/gme/Nes_Apu.cpp blarg-sound/gme/Nes_Fme7_Apu.cpp blarg-sound/gme/Nes_Namco_Apu.cpp blarg-sound/gme/Nes_Oscs.cpp blarg-sound/gme/Nes_Vrc6_Apu.cpp boards/__dummy_mapper.c boards/01-222.c boards/112.c boards/117.c boards/164.c boards/183.c boards/185.c boards/186.c boards/187.c boards/189.c boards/208.c boards/222.c boards/235.c boards/43.c boards/57.c boards/603-5052.c boards/68.c boards/8157.c boards/8237.c boards/88.c boards/90.c boards/95.c boards/a9711.c boards/addrlatch.c boards/bmc13in1jy110.c boards/bmc42in1r.c boards/bmc64in1nr.c boards/bmc70in1.c boards/bonza.c boards/datalatch.c boards/deirom.c boards/dream.c boards/edu2000.c boards/fk23c.c boards/h2288.c boards/karaoke.c boards/kof97.c boards/konami-qtai.c boards/malee.c boards/mmc1.c boards/mmc3.c boards/mmc5.c boards/n106.c boards/n-c22m.c boards/novel.c boards/sachen.c boards/sheroes.c boards/sl1632.c boards/subor.c boards/super24.c boards/supervision.c boards/t-262.c boards/tengen.c boards/199.c input/cursor.c input/zapper.c input/powerpad.c input/arkanoid.c input/shadow.c input/fkb.c input/fkb.h input/hypershot.c input/mahjong.c input/oekakids.c input/ftrainer.c input/quiz.c input/toprider.c input/bworld.c input/suborkb.c mappers/__226.c mappers/15.c mappers/151.c mappers/16.c mappers/17.c mappers/18.c mappers/193.c mappers/200.c mappers/201.c mappers/202.c mappers/203.c mappers/204.c mappers/21.c mappers/212.c mappers/213.c mappers/214.c mappers/215.c mappers/217.c mappers/22.c mappers/225.c mappers/227.c mappers/228.c mappers/229.c mappers/23.c mappers/230.c mappers/231.c mappers/232.c mappers/234.c mappers/240.c mappers/241.c mappers/242.c mappers/244.c mappers/246.c mappers/24and26.c mappers/25.c mappers/255.c mappers/27.c mappers/32.c mappers/33.c mappers/40.c mappers/41.c mappers/42.c mappers/43.c mappers/46.c mappers/50.c mappers/51.c mappers/59.c mappers/6.c mappers/60.c mappers/61.c mappers/62.c mappers/65.c mappers/67.c mappers/68.c mappers/69.c mappers/71.c mappers/72.c mappers/73.c mappers/75.c mappers/76.c mappers/77.c mappers/79.c mappers/8.c mappers/80.c mappers/82.c mappers/83.c mappers/85.c mappers/86.c mappers/89.c mappers/91.c mappers/92.c mappers/97.c mappers/99.c mappers/emu2413.c mappers/mmc2and4.c mappers/simple.c drivers/common/args.c drivers/common/cheat.c drivers/common/config.c drivers/common/vidblit.c drivers/common/hq2x.c drivers/common/hq3x.c drivers/common/scale2x.c drivers/common/scale3x.c drivers/common/scalebit.c $(sexyal_SOURCES) $(fceud_SOURCES)
 
 @USE_SEXYAL_TRUE@sexyal_SOURCES = drivers/sexyal/sexyal.c drivers/sexyal/md5.c drivers/sexyal/smallc.c drivers/sexyal/convert.c $(TMP_SEXYAL)
 
@@ -161,7 +161,7 @@ fceu_SOURCES = x6502.c fceustr.c cart.c cheat.c crc32.c debug.c endian.c fceu.c 
 #fceud_DOS_SOURCES	=	drivers/pc/dos.c
 @NATIVEWIN32_FALSE@@OPENGL_TRUE@TMP_OGL = drivers/pc/sdl-opengl.c
 
-DEFAULT_INCLUDES = 
+DEFAULT_INCLUDES = -Iblarg-sound
 subdir = src
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_CLEAN_FILES =
@@ -172,24 +172,27 @@ am__fceu_SOURCES_DIST = x6502.c fceustr.c cart.c cheat.c crc32.c debug.c \
 	endian.c fceu.c fds.c file.c filter.c general.c ines.c input.c \
 	md5.c memory.c netplay.c nsf.c palette.c ppu.c sound.c state.c \
 	unif.c video.c vsuni.c wave.c movie.c unzip.c \
-	boards/__dummy_mapper.c boards/01-222.c boards/112.c \
-	boards/117.c boards/164.c boards/183.c boards/185.c \
-	boards/186.c boards/187.c boards/189.c boards/208.c \
-	boards/222.c boards/235.c boards/43.c boards/57.c \
-	boards/603-5052.c boards/68.c boards/8157.c boards/8237.c \
-	boards/88.c boards/90.c boards/95.c boards/a9711.c \
-	boards/addrlatch.c boards/bmc13in1jy110.c boards/bmc42in1r.c \
-	boards/bmc64in1nr.c boards/bmc70in1.c boards/bonza.c \
-	boards/datalatch.c boards/deirom.c boards/dream.c \
-	boards/edu2000.c boards/fk23c.c boards/h2288.c boards/karaoke.c \
-	boards/kof97.c boards/konami-qtai.c boards/malee.c \
-	boards/mmc1.c boards/mmc3.c boards/mmc5.c boards/n106.c \
-	boards/n-c22m.c boards/novel.c boards/sachen.c boards/sheroes.c \
-	boards/sl1632.c boards/subor.c boards/super24.c \
-	boards/supervision.c boards/t-262.c boards/tengen.c \
-	boards/199.c input/cursor.c input/zapper.c input/powerpad.c \
-	input/arkanoid.c input/shadow.c input/fkb.c input/fkb.h \
-	input/hypershot.c input/mahjong.c input/oekakids.c \
+	blarg-sound/BlarggApu.cpp blarg-sound/gme/Blip_Buffer.cpp \
+	blarg-sound/gme/Nes_Apu.cpp blarg-sound/gme/Nes_Fme7_Apu.cpp \
+	blarg-sound/gme/Nes_Namco_Apu.cpp blarg-sound/gme/Nes_Oscs.cpp \
+	blarg-sound/gme/Nes_Vrc6_Apu.cpp boards/__dummy_mapper.c \
+	boards/01-222.c boards/112.c boards/117.c boards/164.c \
+	boards/183.c boards/185.c boards/186.c boards/187.c \
+	boards/189.c boards/208.c boards/222.c boards/235.c boards/43.c \
+	boards/57.c boards/603-5052.c boards/68.c boards/8157.c \
+	boards/8237.c boards/88.c boards/90.c boards/95.c \
+	boards/a9711.c boards/addrlatch.c boards/bmc13in1jy110.c \
+	boards/bmc42in1r.c boards/bmc64in1nr.c boards/bmc70in1.c \
+	boards/bonza.c boards/datalatch.c boards/deirom.c \
+	boards/dream.c boards/edu2000.c boards/fk23c.c boards/h2288.c \
+	boards/karaoke.c boards/kof97.c boards/konami-qtai.c \
+	boards/malee.c boards/mmc1.c boards/mmc3.c boards/mmc5.c \
+	boards/n106.c boards/n-c22m.c boards/novel.c boards/sachen.c \
+	boards/sheroes.c boards/sl1632.c boards/subor.c \
+	boards/super24.c boards/supervision.c boards/t-262.c \
+	boards/tengen.c boards/199.c input/cursor.c input/zapper.c \
+	input/powerpad.c input/arkanoid.c input/shadow.c input/fkb.c \
+	input/fkb.h input/hypershot.c input/mahjong.c input/oekakids.c \
 	input/ftrainer.c input/quiz.c input/toprider.c input/bworld.c \
 	input/suborkb.c mappers/__226.c mappers/15.c mappers/151.c \
 	mappers/16.c mappers/17.c mappers/18.c mappers/193.c \
@@ -267,6 +270,13 @@ am_fceu_OBJECTS = x6502.$(OBJEXT) fceustr.$(OBJEXT) cart.$(OBJEXT) \
 	netplay.$(OBJEXT) nsf.$(OBJEXT) palette.$(OBJEXT) ppu.$(OBJEXT) \
 	sound.$(OBJEXT) state.$(OBJEXT) unif.$(OBJEXT) video.$(OBJEXT) \
 	vsuni.$(OBJEXT) wave.$(OBJEXT) movie.$(OBJEXT) unzip.$(OBJEXT) \
+	blarg-sound/BlarggApu.$(OBJEXT) \
+	blarg-sound/gme/Blip_Buffer.$(OBJEXT) \
+	blarg-sound/gme/Nes_Apu.$(OBJEXT) \
+	blarg-sound/gme/Nes_Fme7_Apu.$(OBJEXT) \
+	blarg-sound/gme/Nes_Namco_Apu.$(OBJEXT) \
+	blarg-sound/gme/Nes_Oscs.$(OBJEXT) \
+	blarg-sound/gme/Nes_Vrc6_Apu.$(OBJEXT) \
 	boards/__dummy_mapper.$(OBJEXT) boards/01-222.$(OBJEXT) \
 	boards/112.$(OBJEXT) boards/117.$(OBJEXT) boards/164.$(OBJEXT) \
 	boards/183.$(OBJEXT) boards/185.$(OBJEXT) boards/186.$(OBJEXT) \
@@ -356,6 +366,13 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/unif.Po ./$(DEPDIR)/unzip.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/video.Po ./$(DEPDIR)/vsuni.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/wave.Po ./$(DEPDIR)/x6502.Po \
+@AMDEP_TRUE@	blarg-sound/$(DEPDIR)/BlarggApu.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po \
+@AMDEP_TRUE@	blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po \
 @AMDEP_TRUE@	boards/$(DEPDIR)/01-222.Po boards/$(DEPDIR)/112.Po \
 @AMDEP_TRUE@	boards/$(DEPDIR)/117.Po boards/$(DEPDIR)/164.Po \
 @AMDEP_TRUE@	boards/$(DEPDIR)/183.Po boards/$(DEPDIR)/185.Po \
@@ -486,6 +503,11 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+CXXLD = $(CXX)
+CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+	-o $@
 DIST_SOURCES = $(am__fceu_SOURCES_DIST)
 DIST_COMMON = $(srcdir)/boards/Makefile.am.inc \
 	$(srcdir)/drivers/common/Makefile.am.inc \
@@ -493,14 +515,13 @@ DIST_COMMON = $(srcdir)/boards/Makefile.am.inc \
 	$(srcdir)/drivers/sexyal/Makefile.am.inc \
 	$(srcdir)/drivers/win/Makefile.am.inc \
 	$(srcdir)/input/Makefile.am.inc \
-	$(srcdir)/mappers/Makefile.am.inc Makefile.am Makefile.in \
-	compile
+	$(srcdir)/mappers/Makefile.am.inc Makefile.am Makefile.in
 SOURCES = $(fceu_SOURCES)
 
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj .res
+.SUFFIXES: .c .cpp .o .obj .res
 $(srcdir)/Makefile.in:  Makefile.am $(srcdir)/boards/Makefile.am.inc $(srcdir)/input/Makefile.am.inc $(srcdir)/mappers/Makefile.am.inc $(srcdir)/drivers/common/Makefile.am.inc $(srcdir)/drivers/sexyal/Makefile.am.inc $(srcdir)/drivers/win/Makefile.am.inc $(srcdir)/drivers/pc/Makefile.am.inc $(top_srcdir)/configure.ac $(ACLOCAL_M4)
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  src/Makefile
@@ -530,6 +551,33 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+blarg-sound/.dirstamp:
+	@$(mkinstalldirs) blarg-sound
+	@: > blarg-sound/.dirstamp
+blarg-sound/$(DEPDIR)/.dirstamp:
+	@$(mkinstalldirs) blarg-sound/$(DEPDIR)
+	@: > blarg-sound/$(DEPDIR)/.dirstamp
+blarg-sound/BlarggApu.$(OBJEXT): blarg-sound/BlarggApu.cpp \
+	blarg-sound/.dirstamp blarg-sound/$(DEPDIR)/.dirstamp
+blarg-sound/gme/.dirstamp:
+	@$(mkinstalldirs) blarg-sound/gme
+	@: > blarg-sound/gme/.dirstamp
+blarg-sound/gme/$(DEPDIR)/.dirstamp:
+	@$(mkinstalldirs) blarg-sound/gme/$(DEPDIR)
+	@: > blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Blip_Buffer.$(OBJEXT): blarg-sound/gme/Blip_Buffer.cpp \
+	blarg-sound/gme/.dirstamp blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Nes_Apu.$(OBJEXT): blarg-sound/gme/Nes_Apu.cpp \
+	blarg-sound/gme/.dirstamp blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Nes_Fme7_Apu.$(OBJEXT): blarg-sound/gme/Nes_Fme7_Apu.cpp \
+	blarg-sound/gme/.dirstamp blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Nes_Namco_Apu.$(OBJEXT): \
+	blarg-sound/gme/Nes_Namco_Apu.cpp blarg-sound/gme/.dirstamp \
+	blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Nes_Oscs.$(OBJEXT): blarg-sound/gme/Nes_Oscs.cpp \
+	blarg-sound/gme/.dirstamp blarg-sound/gme/$(DEPDIR)/.dirstamp
+blarg-sound/gme/Nes_Vrc6_Apu.$(OBJEXT): blarg-sound/gme/Nes_Vrc6_Apu.cpp \
+	blarg-sound/gme/.dirstamp blarg-sound/gme/$(DEPDIR)/.dirstamp
 boards/.dirstamp:
 	@$(mkinstalldirs) boards
 	@: > boards/.dirstamp
@@ -943,10 +991,17 @@ drivers/pc/sdl-opengl.$(OBJEXT): drivers/pc/sdl-opengl.c \
 	drivers/pc/.dirstamp drivers/pc/$(DEPDIR)/.dirstamp
 fceu$(EXEEXT): $(fceu_OBJECTS) $(fceu_DEPENDENCIES) 
 	@rm -f fceu$(EXEEXT)
-	$(LINK) $(fceu_LDFLAGS) $(fceu_OBJECTS) $(fceu_LDADD) $(LIBS)
+	$(CXXLINK) $(fceu_LDFLAGS) $(fceu_OBJECTS) $(fceu_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
+	-rm -f blarg-sound/BlarggApu.$(OBJEXT)
+	-rm -f blarg-sound/gme/Blip_Buffer.$(OBJEXT)
+	-rm -f blarg-sound/gme/Nes_Apu.$(OBJEXT)
+	-rm -f blarg-sound/gme/Nes_Fme7_Apu.$(OBJEXT)
+	-rm -f blarg-sound/gme/Nes_Namco_Apu.$(OBJEXT)
+	-rm -f blarg-sound/gme/Nes_Oscs.$(OBJEXT)
+	-rm -f blarg-sound/gme/Nes_Vrc6_Apu.$(OBJEXT)
 	-rm -f boards/01-222.$(OBJEXT)
 	-rm -f boards/112.$(OBJEXT)
 	-rm -f boards/117.$(OBJEXT)
@@ -1159,6 +1214,13 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vsuni.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wave.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/x6502.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/$(DEPDIR)/BlarggApu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@boards/$(DEPDIR)/01-222.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@boards/$(DEPDIR)/112.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@boards/$(DEPDIR)/117.Po@am__quote@
@@ -1341,7 +1403,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@mappers/$(DEPDIR)/simple.Po@am__quote@
 
 distclean-depend:
-	-rm -rf ./$(DEPDIR) boards/$(DEPDIR) drivers/common/$(DEPDIR) drivers/pc/$(DEPDIR) drivers/sexyal/$(DEPDIR) drivers/sexyal/drivers/$(DEPDIR) drivers/win/$(DEPDIR) input/$(DEPDIR) mappers/$(DEPDIR)
+	-rm -rf ./$(DEPDIR) blarg-sound/$(DEPDIR) blarg-sound/gme/$(DEPDIR) boards/$(DEPDIR) drivers/common/$(DEPDIR) drivers/pc/$(DEPDIR) drivers/sexyal/$(DEPDIR) drivers/sexyal/drivers/$(DEPDIR) drivers/win/$(DEPDIR) input/$(DEPDIR) mappers/$(DEPDIR)
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" \
@@ -5324,6 +5386,182 @@ drivers/pc/sdl-opengl.obj: drivers/pc/sdl-opengl.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='drivers/pc/$(DEPDIR)/sdl-opengl.Po' tmpdepfile='drivers/pc/$(DEPDIR)/sdl-opengl.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o drivers/pc/sdl-opengl.obj `if test -f 'drivers/pc/sdl-opengl.c'; then $(CYGPATH_W) 'drivers/pc/sdl-opengl.c'; else $(CYGPATH_W) '$(srcdir)/drivers/pc/sdl-opengl.c'`
+
+.cpp.o:
+@am__fastdepCXX_TRUE@	if $(CXXCOMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<; \
+@am__fastdepCXX_TRUE@	then mv "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
+
+.cpp.obj:
+@am__fastdepCXX_TRUE@	if $(CXXCOMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o $@ `if test -f '$<'; then $(CYGPATH_W) '$<'; else $(CYGPATH_W) '$(srcdir)/$<'`; \
+@am__fastdepCXX_TRUE@	then mv "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='$(DEPDIR)/$*.Po' tmpdepfile='$(DEPDIR)/$*.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXXCOMPILE) -c -o $@ `if test -f '$<'; then $(CYGPATH_W) '$<'; else $(CYGPATH_W) '$(srcdir)/$<'`
+
+blarg-sound/BlarggApu.o: blarg-sound/BlarggApu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/BlarggApu.o -MD -MP -MF "blarg-sound/$(DEPDIR)/BlarggApu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/BlarggApu.o `test -f 'blarg-sound/BlarggApu.cpp' || echo '$(srcdir)/'`blarg-sound/BlarggApu.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/$(DEPDIR)/BlarggApu.Tpo" "blarg-sound/$(DEPDIR)/BlarggApu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/$(DEPDIR)/BlarggApu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/BlarggApu.cpp' object='blarg-sound/BlarggApu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/$(DEPDIR)/BlarggApu.Po' tmpdepfile='blarg-sound/$(DEPDIR)/BlarggApu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/BlarggApu.o `test -f 'blarg-sound/BlarggApu.cpp' || echo '$(srcdir)/'`blarg-sound/BlarggApu.cpp
+
+blarg-sound/BlarggApu.obj: blarg-sound/BlarggApu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/BlarggApu.obj -MD -MP -MF "blarg-sound/$(DEPDIR)/BlarggApu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/BlarggApu.obj `if test -f 'blarg-sound/BlarggApu.cpp'; then $(CYGPATH_W) 'blarg-sound/BlarggApu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/BlarggApu.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/$(DEPDIR)/BlarggApu.Tpo" "blarg-sound/$(DEPDIR)/BlarggApu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/$(DEPDIR)/BlarggApu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/BlarggApu.cpp' object='blarg-sound/BlarggApu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/$(DEPDIR)/BlarggApu.Po' tmpdepfile='blarg-sound/$(DEPDIR)/BlarggApu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/BlarggApu.obj `if test -f 'blarg-sound/BlarggApu.cpp'; then $(CYGPATH_W) 'blarg-sound/BlarggApu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/BlarggApu.cpp'`
+
+blarg-sound/gme/Blip_Buffer.o: blarg-sound/gme/Blip_Buffer.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Blip_Buffer.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Blip_Buffer.o `test -f 'blarg-sound/gme/Blip_Buffer.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Blip_Buffer.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo" "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Blip_Buffer.cpp' object='blarg-sound/gme/Blip_Buffer.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Blip_Buffer.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Blip_Buffer.o `test -f 'blarg-sound/gme/Blip_Buffer.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Blip_Buffer.cpp
+
+blarg-sound/gme/Blip_Buffer.obj: blarg-sound/gme/Blip_Buffer.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Blip_Buffer.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Blip_Buffer.obj `if test -f 'blarg-sound/gme/Blip_Buffer.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Blip_Buffer.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Blip_Buffer.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo" "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Blip_Buffer.cpp' object='blarg-sound/gme/Blip_Buffer.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Blip_Buffer.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Blip_Buffer.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Blip_Buffer.obj `if test -f 'blarg-sound/gme/Blip_Buffer.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Blip_Buffer.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Blip_Buffer.cpp'`
+
+blarg-sound/gme/Nes_Apu.o: blarg-sound/gme/Nes_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Apu.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Apu.o `test -f 'blarg-sound/gme/Nes_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Apu.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Apu.cpp' object='blarg-sound/gme/Nes_Apu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Apu.o `test -f 'blarg-sound/gme/Nes_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Apu.cpp
+
+blarg-sound/gme/Nes_Apu.obj: blarg-sound/gme/Nes_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Apu.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Apu.obj `if test -f 'blarg-sound/gme/Nes_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Apu.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Apu.cpp' object='blarg-sound/gme/Nes_Apu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Apu.obj `if test -f 'blarg-sound/gme/Nes_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Apu.cpp'`
+
+blarg-sound/gme/Nes_Fme7_Apu.o: blarg-sound/gme/Nes_Fme7_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Fme7_Apu.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Fme7_Apu.o `test -f 'blarg-sound/gme/Nes_Fme7_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Fme7_Apu.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Fme7_Apu.cpp' object='blarg-sound/gme/Nes_Fme7_Apu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Fme7_Apu.o `test -f 'blarg-sound/gme/Nes_Fme7_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Fme7_Apu.cpp
+
+blarg-sound/gme/Nes_Fme7_Apu.obj: blarg-sound/gme/Nes_Fme7_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Fme7_Apu.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Fme7_Apu.obj `if test -f 'blarg-sound/gme/Nes_Fme7_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Fme7_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Fme7_Apu.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Fme7_Apu.cpp' object='blarg-sound/gme/Nes_Fme7_Apu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Fme7_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Fme7_Apu.obj `if test -f 'blarg-sound/gme/Nes_Fme7_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Fme7_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Fme7_Apu.cpp'`
+
+blarg-sound/gme/Nes_Namco_Apu.o: blarg-sound/gme/Nes_Namco_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Namco_Apu.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Namco_Apu.o `test -f 'blarg-sound/gme/Nes_Namco_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Namco_Apu.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Namco_Apu.cpp' object='blarg-sound/gme/Nes_Namco_Apu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Namco_Apu.o `test -f 'blarg-sound/gme/Nes_Namco_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Namco_Apu.cpp
+
+blarg-sound/gme/Nes_Namco_Apu.obj: blarg-sound/gme/Nes_Namco_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Namco_Apu.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Namco_Apu.obj `if test -f 'blarg-sound/gme/Nes_Namco_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Namco_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Namco_Apu.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Namco_Apu.cpp' object='blarg-sound/gme/Nes_Namco_Apu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Namco_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Namco_Apu.obj `if test -f 'blarg-sound/gme/Nes_Namco_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Namco_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Namco_Apu.cpp'`
+
+blarg-sound/gme/Nes_Oscs.o: blarg-sound/gme/Nes_Oscs.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Oscs.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Oscs.o `test -f 'blarg-sound/gme/Nes_Oscs.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Oscs.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Oscs.cpp' object='blarg-sound/gme/Nes_Oscs.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Oscs.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Oscs.o `test -f 'blarg-sound/gme/Nes_Oscs.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Oscs.cpp
+
+blarg-sound/gme/Nes_Oscs.obj: blarg-sound/gme/Nes_Oscs.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Oscs.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Oscs.obj `if test -f 'blarg-sound/gme/Nes_Oscs.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Oscs.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Oscs.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Oscs.cpp' object='blarg-sound/gme/Nes_Oscs.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Oscs.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Oscs.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Oscs.obj `if test -f 'blarg-sound/gme/Nes_Oscs.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Oscs.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Oscs.cpp'`
+
+blarg-sound/gme/Nes_Vrc6_Apu.o: blarg-sound/gme/Nes_Vrc6_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Vrc6_Apu.o -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Vrc6_Apu.o `test -f 'blarg-sound/gme/Nes_Vrc6_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Vrc6_Apu.cpp; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Vrc6_Apu.cpp' object='blarg-sound/gme/Nes_Vrc6_Apu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Vrc6_Apu.o `test -f 'blarg-sound/gme/Nes_Vrc6_Apu.cpp' || echo '$(srcdir)/'`blarg-sound/gme/Nes_Vrc6_Apu.cpp
+
+blarg-sound/gme/Nes_Vrc6_Apu.obj: blarg-sound/gme/Nes_Vrc6_Apu.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT blarg-sound/gme/Nes_Vrc6_Apu.obj -MD -MP -MF "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo" \
+@am__fastdepCXX_TRUE@	  -c -o blarg-sound/gme/Nes_Vrc6_Apu.obj `if test -f 'blarg-sound/gme/Nes_Vrc6_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Vrc6_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Vrc6_Apu.cpp'`; \
+@am__fastdepCXX_TRUE@	then mv "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo" "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po"; \
+@am__fastdepCXX_TRUE@	else rm -f "blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Tpo"; exit 1; \
+@am__fastdepCXX_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='blarg-sound/gme/Nes_Vrc6_Apu.cpp' object='blarg-sound/gme/Nes_Vrc6_Apu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.Po' tmpdepfile='blarg-sound/gme/$(DEPDIR)/Nes_Vrc6_Apu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o blarg-sound/gme/Nes_Vrc6_Apu.obj `if test -f 'blarg-sound/gme/Nes_Vrc6_Apu.cpp'; then $(CYGPATH_W) 'blarg-sound/gme/Nes_Vrc6_Apu.cpp'; else $(CYGPATH_W) '$(srcdir)/blarg-sound/gme/Nes_Vrc6_Apu.cpp'`
 uninstall-info-am:
 
 ETAGS = etags
@@ -5439,22 +5677,26 @@ clean-generic:
 
 distclean-generic:
 	-rm -f Makefile $(CONFIG_CLEAN_FILES)
-	-rm -f drivers/common/$(DEPDIR)/.dirstamp
-	-rm -f drivers/pc/$(DEPDIR)/.dirstamp
 	-rm -f drivers/pc/.dirstamp
 	-rm -f drivers/win/$(DEPDIR)/.dirstamp
-	-rm -f drivers/sexyal/drivers/$(DEPDIR)/.dirstamp
 	-rm -f drivers/win/.dirstamp
 	-rm -f input/$(DEPDIR)/.dirstamp
 	-rm -f drivers/common/.dirstamp
 	-rm -f boards/.dirstamp
-	-rm -f drivers/sexyal/$(DEPDIR)/.dirstamp
-	-rm -f mappers/.dirstamp
-	-rm -f drivers/sexyal/drivers/.dirstamp
+	-rm -f blarg-sound/.dirstamp
 	-rm -f drivers/sexyal/.dirstamp
+	-rm -f blarg-sound/gme/.dirstamp
+	-rm -f mappers/$(DEPDIR)/.dirstamp
+	-rm -f blarg-sound/gme/$(DEPDIR)/.dirstamp
+	-rm -f drivers/common/$(DEPDIR)/.dirstamp
+	-rm -f drivers/pc/$(DEPDIR)/.dirstamp
+	-rm -f drivers/sexyal/drivers/$(DEPDIR)/.dirstamp
+	-rm -f mappers/.dirstamp
+	-rm -f drivers/sexyal/$(DEPDIR)/.dirstamp
+	-rm -f drivers/sexyal/drivers/.dirstamp
+	-rm -f blarg-sound/$(DEPDIR)/.dirstamp
 	-rm -f boards/$(DEPDIR)/.dirstamp
 	-rm -f input/.dirstamp
-	-rm -f mappers/$(DEPDIR)/.dirstamp
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
