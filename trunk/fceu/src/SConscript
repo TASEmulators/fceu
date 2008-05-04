@@ -1,0 +1,47 @@
+file_list = Split("""
+asm.cpp
+cart.cpp
+cheat.cpp
+conddebug.cpp
+config.cpp
+debug.cpp
+fceu.cpp
+fds.cpp
+file.cpp 
+filter.cpp 
+ines.cpp
+input.cpp
+netplay.cpp
+nsf.cpp
+palette.cpp
+ppu.cpp
+sound.cpp
+state.cpp
+unif.cpp
+video.cpp
+vsuni.cpp
+wave.cpp
+x6502.cpp
+movie.cpp
+""")
+
+subdirs = Split("""
+boards
+drivers/common
+drivers/sdl
+fir
+input
+utils
+mappers""")
+#palettes
+
+Import('env')
+Export('env')
+
+for dir in subdirs:
+  subdir_files = SConscript('%s/SConscript' % dir)
+  file_list.append(subdir_files)
+
+print env['LINKFLAGS']
+
+env.Program('fceu', file_list)
