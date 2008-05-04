@@ -24,10 +24,10 @@
 // I like hacks.
 #define uint8 __UNO492032
 #include <winsock.h>
-#include "ddraw.h"
+#include "directx/ddraw.h"
 #undef LPCWAVEFORMATEX
-#include "dsound.h"
-#include "dinput.h"
+#include "directx/dsound.h"
+#include "directx/dinput.h"
 #include <commctrl.h>
 #include <shlobj.h>     // For directories configuration dialog.
 #undef uint8
@@ -97,9 +97,9 @@ int soundoptions = SO_SECONDARY | SO_GFOCUS;
 
 /** 
 * Contains the names of the overridden standard directories
-* in the order cheats, misc, nonvol, states, snaps, ..., base
+* in the order cheats, misc, nonvol, states, snaps, memwatch, basicbot, macro, fds,..., base
 **/
-char *directory_names[6] = {0, 0, 0, 0, 0, 0};
+char *directory_names[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 /**
 * Handle of the main window.
@@ -152,12 +152,16 @@ void SetDirs()
 {
 	int x;
 
-	static int jlist[6]= {
+	static int jlist[10]= {
 		FCEUIOD_CHEATS,
 		FCEUIOD_MISC,
 		FCEUIOD_NV,
 		FCEUIOD_STATE,
-		FCEUIOD_SNAPS, 
+		FCEUIOD_SNAPS,
+		FCEUIOD_MEMW,
+		FCEUIOD_BBOT,
+		FCEUIOD_MACRO,
+		FCEUIOD_FDS,
 		FCEUIOD__COUNT};
 
 	FCEUI_SetSnapName(eoptions & EO_SNAPNAME);
@@ -167,9 +171,9 @@ void SetDirs()
 		FCEUI_SetDirOverride(jlist[x], directory_names[x]);
 	}
 
-	if(directory_names[5])
+	if(directory_names[10])
 	{
-		FCEUI_SetBaseDirectory(directory_names[5]);
+		FCEUI_SetBaseDirectory(directory_names[10]);
 	}
 	else
 	{

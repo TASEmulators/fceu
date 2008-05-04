@@ -1,7 +1,7 @@
 #ifndef WIN_INPUT_H
 #define WIN_INPU_H
 
-#include "dinput.h"
+#include "directx/dinput.h"
 
 #define CMD_KEY_MASK			0xff
 #define CMD_KEY_LSHIFT			(1<<16)

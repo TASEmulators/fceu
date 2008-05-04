@@ -6,6 +6,7 @@
 	ProjectGUID="{6893EF44-FEA3-46DF-B236-C4C200F54294}"
 	RootNamespace="fceux"
 	Keyword="Win32Proj"
+	AssemblyReferenceSearchPaths="&quot;..\..\include&quot;"
 	>
 	<Platforms>
 		<Platform
@@ -129,7 +130,7 @@
 				EnableIntrinsicFunctions="true"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
-				AdditionalIncludeDirectories="../src/drivers/win/zlib"
+				AdditionalIncludeDirectories="../src/drivers/win/zlib;&quot;../src/drivers/win/directx&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;MSVC;_CRT_SECURE_NO_DEPRECATE;_WIN32_WINDOWS=0x0410;WINVER=0x0410;NETWORK;LSB_FIRST;_USE_32BIT_TIME_T;FCEUDEF_DEBUGGER;_USE_SHARED_MEMORY_"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -148,7 +149,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="comctl32.lib vfw32.lib winmm.lib ws2_32.lib ../vc_libs/x86/ddraw.lib ../vc_libs/x86/dsound.lib ../vc_libs/x86/dinput.lib ../vc_libs/x86/dxguid.lib"
+				AdditionalDependencies="comctl32.lib vfw32.lib winmm.lib ws2_32.lib ../../lib/ddraw.lib ../../lib/dsound.lib ../../lib/dinput.lib ../../lib/dxguid.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="2"

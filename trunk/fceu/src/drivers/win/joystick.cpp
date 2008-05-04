@@ -19,7 +19,7 @@
  */
 
 #include "common.h"
-#include "dinput.h"
+#include "directx/dinput.h"
 
 #include "input.h"
 #include "joystick.h"

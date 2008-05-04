@@ -1,6 +1,6 @@
 #include "oakra.h"
 
-#include "dsound.h"
+#include "directx/dsound.h"
 #include <vector>
 
 #define LATENCY_MS (100)

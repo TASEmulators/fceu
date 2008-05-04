@@ -39,7 +39,7 @@ static int status_icon = 1;
 static int vmod = 0;
 static char *gfsdir=0;
 
-extern char* directory_names[6];
+extern char* directory_names[10];
 
 /**
 * Contains the names of the default directories.

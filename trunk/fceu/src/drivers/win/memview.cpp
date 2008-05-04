@@ -682,6 +682,7 @@ void InputData(char *input){
 	}
 	*/
 
+using namespace std;
 
 void ChangeMemViewFocus(int newEditingMode, int StartOffset,int EndOffset){
 	SCROLLINFO si;
@@ -699,12 +700,12 @@ void ChangeMemViewFocus(int newEditingMode, int StartOffset,int EndOffset){
 		CursorEndAddy = -1;
 		CursorStartAddy = StartOffset;
 	} else {
-		CursorStartAddy = std::min(StartOffset,EndOffset);
-		CursorEndAddy = std::max(StartOffset,EndOffset);
+		CursorStartAddy = min(StartOffset,EndOffset);
+		CursorEndAddy = max(StartOffset,EndOffset);
 	}
 
 
-	if(std::min(StartOffset,EndOffset) >= MaxSize)return; //this should never happen
+	if(min(StartOffset,EndOffset) >= MaxSize)return; //this should never happen
 
 	if(StartOffset < CurOffset){
 		CurOffset = (StartOffset/16)*16;
@@ -1026,8 +1027,8 @@ LRESULT CALLBACK MemViewCallB(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPa
 					if (i >= MaxSize)i = MaxSize-1;
 					EditingText = AddyWasText;
 					if(i != -1){
-						CursorStartAddy = std::min(i,CursorDragPoint);
-						CursorEndAddy = std::max(i,CursorDragPoint);
+						CursorStartAddy = min(i,CursorDragPoint);
+						CursorEndAddy = max(i,CursorDragPoint);
 						if(CursorEndAddy == CursorStartAddy)CursorEndAddy = -1;
 					}
 

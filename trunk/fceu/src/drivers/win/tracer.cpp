@@ -443,6 +443,8 @@ void UpdateLogWindow(void){
 	return;
 }
 
+using namespace std;
+
 void UpdateLogText(void){
 	int i, j;
 	char str[2048];
@@ -455,7 +457,7 @@ void UpdateLogText(void){
 	}
 	*/
 
-	for(i = tracesi.nPos;i < std::min(tracesi.nMax,tracesi.nPos+21);i++){
+	for(i = tracesi.nPos;i < min(tracesi.nMax,tracesi.nPos+21);i++){
 		j = i;
 		if(tracelogbufusedsize == tracelogbufsize){
 			j = (tracelogbufpos+i)%tracelogbufsize;
