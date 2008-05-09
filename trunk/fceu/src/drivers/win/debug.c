@@ -560,6 +560,7 @@ static BOOL CALLBACK MemCon(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
                            v=StrToU8(TempArray);
                            FCEUI_MemPoke(a,v,LOWORD(wParam)&1);
                            UpdateDMem(cmsi);
+                           UpdateMemWatch();
                           
                            if(dwin && 0==instep)
                            {

@@ -348,6 +348,7 @@ static void LoadMemWatch()
 
 static BOOL CALLBACK MemWatchCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+	int i;
 	DSMFix(uMsg);
 	switch(uMsg)
 	{
@@ -362,6 +363,14 @@ static BOOL CALLBACK MemWatchCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARA
 	case WM_COMMAND:
 		switch(HIWORD(wParam))
 		{
+		case EN_CHANGE:
+		 for(i=0;i<24;i++)
+		  {
+ 			if (LOWORD(wParam) == 1001+i*3)
+ 				UpdateMemWatch();
+ 			}
+		 break;
+			
 		case BN_CLICKED:
 			switch(LOWORD(wParam))
 			{
