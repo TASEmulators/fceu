@@ -652,10 +652,10 @@ void FCEU_printf(char *format, ...)
  vsprintf(temp,format,ap);
  FCEUD_Message(temp);
 
- FILE *ofile;
- ofile=fopen("stdout.txt","ab");
- fwrite(temp,1,strlen(temp),ofile);
- fclose(ofile);
+// FILE *ofile;
+// ofile=fopen("stdout.txt","ab");
+// fwrite(temp,1,strlen(temp),ofile);
+// fclose(ofile);
 
  va_end(ap);
 }
