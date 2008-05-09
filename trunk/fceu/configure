@@ -1181,6 +1181,10 @@ cat >>confdefs.h <<_ACEOF
 _ACEOF
 
 
+cat >>confdefs.h <<_ACEOF
+#define _USE_SHARED_MEMORY_ 1
+_ACEOF
+
 # Let the site file select an alternate cache file if it wants to.
 # Prefer explicitly selected file to automatically selected ones.
 if test -z "$CONFIG_SITE"; then
