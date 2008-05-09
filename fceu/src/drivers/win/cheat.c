@@ -317,6 +317,14 @@ static BOOL CALLBACK AddCheatCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARA
                  case 108:
                         switch(HIWORD(wParam))
                         {
+                         case LBN_DBLCLK:
+                                 {
+                                  char TempArray[32];
+                                  SendDlgItemMessage(hwndDlg,108,LB_GETTEXT,SendDlgItemMessage(hwndDlg,108,LB_GETCURSEL,0,(LPARAM)(LPSTR)0),(LPARAM)(LPCTSTR)TempArray);
+                                  TempArray[4]=0;
+                                  AddMemWatch(TempArray);
+                                 }
+                                 break;
                          case LBN_SELCHANGE:
                                  {
                                   char TempArray[32];
