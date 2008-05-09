@@ -127,19 +127,24 @@ void FCEUD_GetPalette(unsigned char i, unsigned char *r, unsigned char *g, unsig
         *b=color_palette[i].peBlue;
 }
 
+static int firstInitialize = 1;
 static int InitializeDDraw(int fs)
 {
-#ifdef _USE_SHARED_MEMORY_
-	mapColorPalette = CreateFileMapping((HANDLE)0xFFFFFFFF,NULL,PAGE_READWRITE, 0, 256 * sizeof(PALETTEENTRY),"fceu.ColorPalette");
-	if(mapColorPalette == NULL || GetLastError() == ERROR_ALREADY_EXISTS)
-	{
-		CloseHandle(mapColorPalette);
-		mapColorPalette = NULL;
-		color_palette = malloc(256 * sizeof(PALETTEENTRY));
+	//only init the palette the first time through
+	if(firstInitialize) {
+		firstInitialize = 0;
+		#ifdef _USE_SHARED_MEMORY_
+			mapColorPalette = CreateFileMapping(INVALID_HANDLE_VALUE,NULL,PAGE_READWRITE, 0, 256 * sizeof(PALETTEENTRY),"fceu.ColorPalette");
+			if(mapColorPalette == NULL || GetLastError() == ERROR_ALREADY_EXISTS)
+			{
+				CloseHandle(mapColorPalette);
+				mapColorPalette = NULL;
+				color_palette = (PALETTEENTRY*)malloc(256 * sizeof(PALETTEENTRY)); //mbg merge 7/18/06 added cast
+			}
+			else
+				color_palette   = (PALETTEENTRY *)MapViewOfFile(mapColorPalette, FILE_MAP_WRITE, 0, 0, 0);
+		#endif
 	}
-	else
-		color_palette   = (PALETTEENTRY *)MapViewOfFile(mapColorPalette, FILE_MAP_WRITE, 0, 0, 0);
-#endif
 	
 	//(disvaccel&(1<<(fs?1:0)))?(GUID FAR *)DDCREATE_EMULATIONONLY:
         ddrval = DirectDrawCreate((disvaccel&(1<<(fs?1:0)))?(GUID FAR *)DDCREATE_EMULATIONONLY:NULL, &lpDD, NULL);
@@ -1122,4 +1127,3 @@ void ConfigVideo(void)
         }
          //SetMainWindowStuff();
 }
-

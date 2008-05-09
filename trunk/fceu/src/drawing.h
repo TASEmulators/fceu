@@ -47,7 +47,8 @@ static void DrawMessage(void)
      if(howlong <= 20) color = 0x1C;
      if(howlong <= 10) color = 0x11;
      if(howlong <= 5) color = 0x1;
-     DrawTextTrans(t, 256, (uint8 *)errmsg, color+0x80);
+     //DrawTextTrans(t, 256, (uint8 *)errmsg, color+0x80);
+     DrawTextTrans(t, 256, (uint8 *)errmsg, 0x20+0x80);
    }
   }
 }

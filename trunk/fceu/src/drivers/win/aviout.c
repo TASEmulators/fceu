@@ -4,7 +4,7 @@
 
 #include "common.h"
 
-extern PALETTEENTRY color_palette[256];
+extern PALETTEENTRY *color_palette;
 extern WAVEFORMATEX wf;
 extern int soundo;
 
