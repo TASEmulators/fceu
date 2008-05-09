@@ -521,6 +521,7 @@ void FCEUI_Emulate(uint8 **pXBuf, int32 **SoundBuf, int32 *SoundBufSize, int ski
 	*SoundBufSize=0;              // keep sound muted
 	UpdateMemWatch();
 	UpdateDebugger();
+	UpdateCheatList();
  }
 }
 
@@ -738,6 +739,7 @@ void FCEUI_ToggleEmulationPause(void)
  EmulationPaused = (EmulationPaused&1)^1;
  UpdateMemWatch();
  UpdateDebugger();
+ UpdateCheatList();
 }
 
 void FCEUI_FrameAdvance(void)

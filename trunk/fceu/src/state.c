@@ -538,6 +538,7 @@ int FCEUSS_Load(char *fname)
 			SaveStateStatus[CurrentState]=1;
 			UpdateMemWatch();
 			UpdateDebugger();
+			UpdateCheatList();
 		}
 		fclose(st);
 		return(1);
