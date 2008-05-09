@@ -561,6 +561,7 @@ static BOOL CALLBACK MemCon(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
                            FCEUI_MemPoke(a,v,LOWORD(wParam)&1);
                            UpdateDMem(cmsi);
                            UpdateMemWatch();
+                           UpdateCheatList();
                           
                            if(dwin && 0==instep)
                            {

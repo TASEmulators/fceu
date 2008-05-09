@@ -490,3 +490,10 @@ void ConfigAddCheat(HWND wnd)
   SetFocus(pwindow); 
 }
 
+void UpdateCheatList()
+{
+ if(!pwindow)
+  return;
+ else
+  DoGet();
+}

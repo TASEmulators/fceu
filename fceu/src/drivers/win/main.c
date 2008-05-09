@@ -621,14 +621,17 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 	} // end of !(old sound code) block
 
 	// Memory Tools windows update
-	if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999) {
+	if (!FCEUI_EmulationPaused() && MemToolsUpdateSpeed == 999)
+	{
 		UpdateMemWatch();
 		UpdateDebugger();
+		UpdateCheatList();
 	}
 	else if(!FCEUI_EmulationPaused() && !(((FCEUD_GetTime()/10000)*10)%MemToolsUpdateSpeed))
 	{
 		UpdateMemWatch();
 		UpdateDebugger();
+		UpdateCheatList();
 	}
 }
 
