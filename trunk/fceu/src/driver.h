@@ -208,6 +208,7 @@ char* FCEUI_MovieGetCurrentName(int addSlotNumber);
 void FCEUI_MovieToggleReadOnly(void);
 void FCEUI_MovieToggleFrameDisplay(void);
 void FCEUI_ToggleInputDisplay(void);
+void FCEUI_MoviePlayFromBeginning(void);
 
 void FCEUD_MovieRecordTo(void);
 void FCEUD_MovieReplayFrom(void);
