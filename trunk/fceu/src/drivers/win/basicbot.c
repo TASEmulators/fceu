@@ -616,7 +616,7 @@ static void SaveBasicBot()
 	ofn.lpstrFile=nameo;
 	ofn.nMaxFile=256;
 	ofn.Flags=OFN_EXPLORER|OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT;
-	ofn.lpstrInitialDir=BasicBotDir;
+	ofn.lpstrInitialDir=FCEU_GetPath(FCEUMKF_BBOT);
 	if(GetSaveFileName(&ofn))
 	{
 		int i,j;
@@ -680,7 +680,7 @@ static void LoadBasicBot()
 	ofn.lpstrFile=nameo;
 	ofn.nMaxFile=256;
 	ofn.Flags=OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
-	ofn.lpstrInitialDir=BasicBotDir;
+	ofn.lpstrInitialDir=FCEU_GetPath(FCEUMKF_BBOT);
 
 	if(GetOpenFileName(&ofn))
 	{
