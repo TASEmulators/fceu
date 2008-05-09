@@ -920,9 +920,9 @@ void UpdateFCEUWindow(void)
   }
 
   BlockingCheck();
-  #ifdef FCEUDEF_DEBUGGER
+  /*#ifdef FCEUDEF_DEBUGGER
   UpdateDebugger();
-  #endif
+  #endif*/
 
   if(!(eoptions&EO_BGRUN))
    while(nofocus)
