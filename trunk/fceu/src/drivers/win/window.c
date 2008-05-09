@@ -690,7 +690,7 @@ LRESULT FAR PASCAL AppWndProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam)
 		  #endif
 
                   case 204:ConfigAddCheat(hWnd);break;
-                  case 205:CreateMemWatch(hWnd);break;
+                  case 205:CreateMemWatch();break;
                   case 100:StopSound();
                            LoadNewGamey(hWnd, 0);
                            break;
