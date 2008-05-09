@@ -122,6 +122,11 @@ char *FCEU_MakePath(int type, const char* filebase)
                      else
                       asprintf(&ret,"%s"PSS"movie"PSS"%s",BaseDirectory,filebase);
 		     break;
+  case FCEUMKF_STATE:if(odirs[FCEUIOD_STATE])
+                      asprintf(&ret,"%s"PSS"%s",odirs[FCEUIOD_STATE],filebase);
+                     else
+                      asprintf(&ret,"%s"PSS"fcs"PSS"%s",BaseDirectory,filebase);
+		     break;
  }
  return(ret);
 }
