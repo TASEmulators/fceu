@@ -1,0 +1,15 @@
+FCEU v0.98.26
+
+{{{
+-New font (Warp's HUD font).
+-BasicBot is back (thanks to zeromus for fixing the shared memory bugs in the official FCEU).
+-New hotkey: "Play movie from beginning". It sets the movie in read-only mode and starts playing from the first frame.
+-Cheats dialog: values change in the cheat search window while you're playing.
+-Cheats dialog: double clicking an address send it to the Memory Watch window (if it is closed, it is automatically opened). It will be added in the first available slot.*
+-Memory Watch: now it updates after poking memory or adding manually a new address.
+-New Directory Override options for Memory Watch and BasicBot files.
+-Record movie from savestate now works.
+-Fixed default directories handling: it won't remove the wrong folder now.
+
+*The cheat search window was never meant to be used like this, so, unless you're lucky, you'll have to pause the emulation before trying to add a new address this way, or it will send garbage to the MemWatch window (don't worry, you won't lose anything; there will only be a new useless address).
+}}}
