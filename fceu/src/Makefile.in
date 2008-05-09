@@ -493,8 +493,7 @@ DIST_COMMON = $(srcdir)/boards/Makefile.am.inc \
 	$(srcdir)/drivers/sexyal/Makefile.am.inc \
 	$(srcdir)/drivers/win/Makefile.am.inc \
 	$(srcdir)/input/Makefile.am.inc \
-	$(srcdir)/mappers/Makefile.am.inc Makefile.am Makefile.in \
-	compile
+	$(srcdir)/mappers/Makefile.am.inc Makefile.am Makefile.in
 SOURCES = $(fceu_SOURCES)
 
 all: all-am

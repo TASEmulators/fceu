@@ -4,7 +4,12 @@
 
 #include "common.h"
 
-extern PALETTEENTRY *color_palette;
+#ifdef _USE_SHARED_MEMORY_
+extern PALETTEENTRY *color_palette; // shared memory changes
+#else
+extern PALETTEENTRY color_palette[256];
+#endif //_USE_SHARED_MEMORY_
+
 extern WAVEFORMATEX wf;
 extern int soundo;
 

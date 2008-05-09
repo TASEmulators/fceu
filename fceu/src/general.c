@@ -102,6 +102,11 @@ char* FCEU_GetPath(int type)
                     else
                       asprintf(&ret,"%s"PSS"memwatch",BaseDirectory);
 		     break;
+  case FCEUMKF_BBOT:if(odirs[FCEUIOD_BBOT])
+                      ret=strdup(odirs[FCEUIOD_BBOT]);
+                    else
+                      asprintf(&ret,"%s"PSS"basicbot",BaseDirectory);
+		     break;
  }
  return(ret);
 }
