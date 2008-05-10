@@ -1,6 +1,8 @@
 FCEU v0.98.26
 
 {{{
+IMPORTANT: you have to remap every hotkey again if you install this version over your previous installation.
+
 -New font (Warp's HUD font).
 -BasicBot is back (thanks to zeromus for fixing the shared memory bugs in the official FCEU).
 -New hotkey: "Play movie from beginning". It sets the movie in read-only mode and starts playing from the first frame.
