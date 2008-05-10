@@ -1103,8 +1103,7 @@ void FCEUI_MoviePlayFromBeginning(void)
 {
  if (current != 0)
  {
-  movie_readonly = 1;
-  RestartMovieOrReset(1);
+		FCEUI_LoadMovie(curMovieFilename, 1, 0);
   FCEU_DispMessage("Movie is now Read-Only. Playing from beginning.");
  }
 }
