@@ -320,9 +320,13 @@ static BOOL CALLBACK AddCheatCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARA
                          case LBN_DBLCLK:
                                  {
                                   char TempArray[32];
+                                  char hexs[] = "0123456789ABCDEF";
+                                  char * NotGarbage;
                                   SendDlgItemMessage(hwndDlg,108,LB_GETTEXT,SendDlgItemMessage(hwndDlg,108,LB_GETCURSEL,0,(LPARAM)(LPSTR)0),(LPARAM)(LPCTSTR)TempArray);
                                   TempArray[4]=0;
-                                  AddMemWatch(TempArray);
+                                  NotGarbage = strpbrk (TempArray, hexs);
+                                  if (NotGarbage != NULL)
+                                   AddMemWatch(TempArray);
                                  }
                                  break;
                          case LBN_SELCHANGE:
