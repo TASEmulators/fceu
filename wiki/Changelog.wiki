@@ -12,7 +12,7 @@ IMPORTANT: you have to remap every hotkey again if you install this version over
 -New Directory Override options for Memory Watch and BasicBot files.
 -Record movie from savestate now works.
 -Fixed default directories handling: it won't remove the wrong folder now.
--Sound.h fix which allows some games to work again: Power Blade 1 and 2, Banana Prince, Gun-Nac, Mitsume ga Tooru, Star Tropics 1 and 2, some SMB1 hacks and probably other games we haven't tested.
+-Sound.h fix which allows some games to work again: Power Blade 1 and 2, Banana Prince, Gun-Nac, Mitsume ga Tooru, Star Tropics 1 and 2, some SMB1 hacks and probably other games we haven't tell.
 
 *The cheat search window was never meant to be used like this, so, unless you're lucky, you'll have to pause the emulation before trying to add a new address this way, or it will send garbage to the MemWatch window (don't worry, you won't lose anything; there will only be a new useless address).
 }}}
