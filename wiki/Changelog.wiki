@@ -5,7 +5,7 @@ IMPORTANT: you have to remap every hotkey again if you install this version over
 
 -New font (Warp's HUD font).
 -BasicBot is back (thanks to zeromus for fixing the shared memory bugs in the official FCEU).
--New hotkey: "Play movie from beginning". It sets the movie in read-only mode and starts playing from the first frame.
+-New hotkey: "Play movie from beginning". It sets the movie in read-only mode and then starts playing from the first frame. The default key for it is "R".
 -Cheats dialog: values change in the cheat search window while you're playing.
 -Cheats dialog: double clicking an address send it to the Memory Watch window (if it is closed, it is automatically opened). It will be added in the first available slot.*
 -Memory Watch: now it updates after poking memory or adding manually a new address.
