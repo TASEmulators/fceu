@@ -147,7 +147,7 @@ static int _keyonly(int a)
 }
 
 int cidisabled=0;
-
+static int disableUDLR=0;
 #define MK(x)   {{BUTTC_KEYBOARD},{0},{MKK(x)},1}
 #define MC(x)   {{BUTTC_KEYBOARD},{0},{x},1}
 #define MK2(x1,x2)        {{BUTTC_KEYBOARD},{0},{MKK(x1),MKK(x2)},2}
@@ -211,6 +211,17 @@ void UpdateGamepad()
   for(x=0;x<8;x++)
    if(DTestButton(&GamePadConfig[wg][x]))
     JS|=(1<<x)<<(wg<<3);
+   
+   // Check if U+D/L+R is disabled
+   if(disableUDLR)
+   {
+     for(x=0;x<32;x+=8)			
+     {
+       if((JS & (0xC0<<x) ) == (0xC0<<x) ) JS&=~(0xC0<<x);
+       if((JS & (0x30<<x) ) == (0x30<<x) ) JS&=~(0x30<<x);
+     }
+   }
+
 
 //  if(rapidAlternator)
    for(x=0;x<2;x++)
@@ -593,7 +604,7 @@ void InitInputStuff(void)
    for(x=0; x<21; x++)
     JoyClearBC(&MahjongButtons[x]);
    for(x=0; x<4; x++)
-    JoyClearBC(&HyperShotButtons[x]);
+    JoyClearBC(&HyperShotButtons[x]);       
 }
 
 
@@ -947,7 +958,7 @@ static BOOL CALLBACK DoTBCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lP
                        sprintf(buf,"Virtual Gamepad %d",DoTBPort+3);
                        SetDlgItemText(hwndDlg, 101, buf);
 
-                       CheckDlgButton(hwndDlg,400,(eoptions & EO_NOFOURSCORE)?BST_CHECKED:BST_UNCHECKED);
+                       CheckDlgButton(hwndDlg,400,(eoptions & EO_NOFOURSCORE)?BST_CHECKED:BST_UNCHECKED);                       
                       }
                       SetWindowText(hwndDlg, DoTBTitle);
                       break;
@@ -1006,7 +1017,9 @@ static BOOL CALLBACK InputConCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARA
   int x;
   
   switch(uMsg) {
-   case WM_INITDIALOG:                
+   case WM_INITDIALOG:   
+   		// Update the disable UDLR checkbox based on the current value
+                CheckDlgButton(hwndDlg,500,disableUDLR?BST_CHECKED:BST_UNCHECKED);             
                 for(x=0;x<2;x++)        
                 {
                  int y;
@@ -1053,6 +1066,13 @@ static BOOL CALLBACK InputConCallB(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARA
    case WM_CLOSE:
    case WM_QUIT: goto gornk;
    case WM_COMMAND:
+   		// Handle disable UD/LR option
+   		if(HIWORD(wParam) == BN_CLICKED && LOWORD(wParam) == 500)
+   		{
+   		    FCEU_printf("Disable UDLR toggled\n");
+   		    disableUDLR = !disableUDLR;
+   		}
+   		
                 if(HIWORD(wParam)==CBN_SELENDOK)
                 {
                  switch(LOWORD(wParam))
