@@ -13,8 +13,6 @@ FCEU v0.98.26
 -New Directory Override options for Memory Watch address lists and BasicBot files.
 -Record movie from savestate now works.
 -Fixed default directories handling: it won't remove the wrong folder now.
--Added an option to the input configuration to allow disabling of U+D/L+R
--Loading a state while recording a movie now shows the last input combination used
 
 *The cheat search window was never meant to be used like this, so, unless you're lucky, you're going to need to pause emulation before trying to add a new address this way, or it may not work.
 
