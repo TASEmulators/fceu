@@ -656,7 +656,7 @@ void FCEUI_SaveMovie(char *fname, uint8 flags, const char* metadata)
  if(!fname)
   FCEUI_SelectMovie(CurrentMovie,1);       /* Quick hack to display status. */
  else
-  FCEU_DispMessage("Movie recording started.");
+  
 
  strcpy(curMovieFilename, origname);
 }
@@ -741,6 +741,7 @@ void FCEUMOV_AddJoy(uint8 *js, int SkipFlush)
    if(tmp < 0)
    {
     StopPlayback();
+    
     memcpy(&cur_input_display,js,4);
     return;
    }
@@ -1017,6 +1018,10 @@ int FCEUMOV_ReadState(FILE* st, uint32 size)
  }
 
  load_successful=1;
+ // Maximus: Show the last input combination entered from the
+ // movie within the state
+ memcpy(&cur_input_display, joop, 4);	
+
  return 1;
 }
 
