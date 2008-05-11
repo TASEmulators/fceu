@@ -656,7 +656,7 @@ void FCEUI_SaveMovie(char *fname, uint8 flags, const char* metadata)
  if(!fname)
   FCEUI_SelectMovie(CurrentMovie,1);       /* Quick hack to display status. */
  else
-  
+  FCEU_DispMessage("Movie recording started.");
 
  strcpy(curMovieFilename, origname);
 }
