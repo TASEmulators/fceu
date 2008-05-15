@@ -1077,6 +1077,39 @@ void FCEUSND_Reset(void)
   DMCAddress=0;
   DMCSize=0;
   DMCShift=0;
+
+	// MAJOR BUG WAS HERE: DMCacc and DMCBitCount never got reset...
+	// so, do some ridiculous hackery if a movie's about to play to keep it in sync...
+
+	extern int movieSyncHackOn,resetDMCacc,movieConvertOffset1,movieConvertOffset2;
+	if(movieSyncHackOn)
+	{
+		if(resetDMCacc)
+		{
+			// no value in movie save state
+#ifdef WIN32
+			// use editbox fields
+			DMCacc=movieConvertOffset1;
+			DMCBitCount=movieConvertOffset2;
+#else
+			// no editbox fields, so leave the values alone
+			// and print out a warning that says what they are
+			FCEU_PrintError("Warning: These variables were not found in the save state and will keep their current value: DMCacc=%d, DMCBitCount=%d\n", DMCacc, DMCBitCount);
+#endif
+		}
+		else
+		{
+			// keep values loaded from movie save state or reset earlier
+		}
+	}
+	else
+	{
+		// reset these variables like should have done in the first place
+		DMCacc=1;
+		DMCBitCount=0;
+	}
+
+//	FCEU_PrintError("DMCacc=%d, DMCBitCount=%d",DMCacc,DMCBitCount);
 }
 
 void FCEUSND_Power(void)
