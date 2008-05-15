@@ -972,7 +972,7 @@ int FCEUMOV_ReadState(FILE* st, uint32 size)
   frameptr -= d;
   nextd = -1;
  }
- if(current!=0) FCEUMOV_CheckWrongMovie(st,size);
+// if(current!=0) FCEUMOV_CheckWrongMovie(st,size);
 
 // if(current > 0 || (!movie_readonly && current < 0))            /* Recording or Playback (!read-only) */
  if(current!=0 && !movie_readonly)
