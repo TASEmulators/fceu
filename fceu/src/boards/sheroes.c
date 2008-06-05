@@ -20,6 +20,7 @@
 
 #include "mapinc.h"
 #include "mmc3.h"
+#define CHRRAM STATIC_CHRRAM
 
 static uint8 *CHRRAM;
 static uint8 tekker;

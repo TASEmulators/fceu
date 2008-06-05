@@ -50,7 +50,7 @@ void FCEUI_SetBaseDirectory(char *dir)
  BaseDirectory[2047]=0;
 }
 
-static char *odirs[FCEUIOD__COUNT]={0,0,0,0,0,0,0,0};     // odirs, odors. ^_^
+static char *odirs[FCEUIOD__COUNT]={0,0,0,0,0,0,0,0,0};     // odirs, odors. ^_^
 
 void FCEUI_SetDirOverride(int which, char *n)
 {
@@ -106,6 +106,11 @@ char* FCEU_GetPath(int type)
                       ret=strdup(odirs[FCEUIOD_BBOT]);
                     else
                       asprintf(&ret,"%s"PSS"basicbot",BaseDirectory);
+		     break;
+  case FCEUMKF_DUMP:if(odirs[FCEUIOD_DUMP])
+                      ret=strdup(odirs[FCEUIOD_DUMP]);
+                     else
+                      asprintf(&ret,"%s"PSS"dump",BaseDirectory);
 		     break;
  }
  return(ret);

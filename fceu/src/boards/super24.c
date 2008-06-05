@@ -20,6 +20,7 @@
 
 #include "mapinc.h"
 #include "mmc3.h"
+#define CHRRAM STATIC_CHRRAM
 
 static uint8 *CHRRAM = NULL;
 static int masko8[8]={63,31,15,1,3,0,0,0};
