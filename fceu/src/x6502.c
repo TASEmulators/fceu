@@ -24,6 +24,7 @@
 #include "x6502.h"
 #include "fceu.h"
 #include "sound.h"
+#include "fceulua.h"
 
 X6502 X;
 
@@ -63,6 +64,7 @@ static INLINE uint8 RdMemNorm(unsigned int A)
 static INLINE void WrMemNorm(unsigned int A, uint8 V)
 {
  BWrite[A](A,V);
+ FCEU_LuaWriteInform();
 }
 
 #ifdef FCEUDEF_DEBUGGER
@@ -84,6 +86,7 @@ static INLINE void WrMemHook(unsigned int A, uint8 V)
   X.WriteHook(&X,A,V);
  else
   BWrite[A](A,V);
+ FCEU_LuaWriteInform();
 }
 #endif
 
@@ -98,6 +101,7 @@ static INLINE uint8 RdRAMFast(unsigned int A)
 static INLINE void WrRAMFast(unsigned int A, uint8 V)
 {
  RAM[A]=V;
+ FCEU_LuaWriteInform();
 }
 
 uint8 FASTAPASS(1) X6502_DMR(uint32 A)
@@ -110,6 +114,7 @@ void FASTAPASS(2) X6502_DMW(uint32 A, uint8 V)
 {
  ADDCYC(1);
  BWrite[A](A,V);
+ FCEU_LuaWriteInform();
 }
 
 #define PUSH(V) \

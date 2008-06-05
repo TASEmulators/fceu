@@ -212,6 +212,8 @@ void FCEUI_MoviePlayFromBeginning(void);
 
 void FCEUD_MovieRecordTo(void);
 void FCEUD_MovieReplayFrom(void);
+void FCEUD_LuaRunFrom(void);
+void FCEUD_UpdateLuaMenus(void);
 
 int32 FCEUI_GetDesiredFPS(void);
 void FCEUI_SaveSnapshot(void);
@@ -245,8 +247,9 @@ void FCEUI_CheatSearchSetCurrentAsOriginal(void);
 #define FCEUIOD_FDSROM  5
 #define FCEUIOD_MEMW    6
 #define FCEUIOD_BBOT    7
+#define FCEUIOD_DUMP    8
 
-#define FCEUIOD__COUNT  8
+#define FCEUIOD__COUNT  9
 
 void FCEUI_SetDirOverride(int which, char *n);
 

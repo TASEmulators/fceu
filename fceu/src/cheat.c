@@ -50,6 +50,24 @@ void FCEU_CheatAddRAM(int s, uint32 A, uint8 *p)
   CheatRPtrs[AB+x]=p-A;
 }
 
+int FCEU_CheatGetByte(uint32 A)
+{
+   if(CheatRPtrs[A>>10])
+    return CheatRPtrs[A>>10][A];
+   else if(A < 0x10000)
+    return ARead[A](A);
+   else
+    return 0;
+}
+
+void FCEU_CheatSetByte(uint32 A, uint8 V)
+{
+   if(CheatRPtrs[A>>10])
+    CheatRPtrs[A>>10][A]=V;
+   else if(A < 0x10000)
+    BWrite[A](A, V);
+}
+
 
 struct CHEATF {
      struct CHEATF *next;
@@ -423,8 +441,7 @@ void FCEU_ApplyPeriodicCheats(void)
  for(;;)
  {
   if(cur->status && !(cur->type))
-   if(CheatRPtrs[cur->addr>>10])
-    CheatRPtrs[cur->addr>>10][cur->addr]=cur->val;
+   FCEU_CheatSetByte(cur->addr, cur->val);
   if(cur->next)
    cur=cur->next;
   else
