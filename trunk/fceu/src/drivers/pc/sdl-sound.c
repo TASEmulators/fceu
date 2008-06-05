@@ -108,7 +108,7 @@ void SilenceSound(int n)
 
 }
 
-int KillSound(void)
+void KillSound(void)
 {
  FCEUI_Sound(0);
  if(Output)
@@ -118,7 +118,6 @@ int KillSound(void)
  Interface=0;
  if(!Output) return(0);
  Output=0;
- return(1);
 }
 
 #elif USE_JACKACK	/* Use JACK Audio Connection Kit */
@@ -209,7 +208,7 @@ void SilenceSound(int n)
 
 }
 
-int KillSound(void)
+void KillSound(void)
 {
  if(tmpbuf)
  {
@@ -221,7 +220,6 @@ int KillSound(void)
   jack_client_close(client);
   client = NULL;
  } 
- return(1);
 }
 
 #else	/* So we'll use SDL's evil sound support.  Ok. */

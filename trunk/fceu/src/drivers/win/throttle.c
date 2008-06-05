@@ -18,6 +18,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include "../../fceulua.h"
+
 static uint64 tmethod,tfreq;
 static uint64 desiredfps;
 
@@ -63,6 +65,7 @@ static void InitSpeedThrottle(void)
 static int SpeedThrottle(void)
 {
  static uint64 ttime,ltime;
+ if (FCEU_LuaSpeed()) return (FCEU_LuaFrameSkip() > 0);
 
  waiter:
 
@@ -83,7 +86,7 @@ static int SpeedThrottle(void)
    // block for a max of 100ms to
    // keep the gui responsive
    Sleep(100);
-   return 1;
+   return (FCEU_LuaFrameSkip() >= 0);
   }
   Sleep(sleepy);
   goto waiter;
@@ -95,9 +98,9 @@ static int SpeedThrottle(void)
   ltime+=tfreq/desiredfps;
 
   if( (ttime-ltime) >= (tfreq/desiredfps) ) // Oops, we're behind!
-  return(1);
+  return (FCEU_LuaFrameSkip() >= 0);
  }
- return(0);
+ return (FCEU_LuaFrameSkip() > 0);
 }
 
 // Quick code for internal FPS display.

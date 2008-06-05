@@ -164,6 +164,18 @@ void UpdateMenu(void)
 	}
 }
 
+void FCEUD_UpdateLuaMenus()
+{
+	MENUITEMINFO mii;
+	ZeroMemory( &mii, sizeof( mii));
+	mii.cbSize = sizeof( mii);
+	mii.fMask = MIIM_STATE;
+	mii.fState = MFS_UNCHECKED;
+	SetMenuItemInfo (fceumenu, 40036, FALSE, &mii);
+	if (!FCEU_LuaRunning()) mii.fState |= MFS_DISABLED;
+	SetMenuItemInfo (fceumenu, 40037, FALSE, &mii);
+}
+
 static HMENU recentmenu, recentdmenu;
 char *rfiles[10]={0,0,0,0,0,0,0,0,0,0};
 char *rdirs[10]={0,0,0,0,0,0,0,0,0,0};
@@ -733,6 +745,8 @@ LRESULT FAR PASCAL AppWndProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam)
                   case 141:FCEUD_MovieRecordTo();break;
                   case 142:FCEUD_MovieReplayFrom();break;
                   case 143:FCEUI_StopMovie();break;
+                  case 40036:FCEUD_LuaRunFrom(); UpdateMenu(); break;
+                  case 40037:FCEU_LuaStop(); UpdateMenu(); break;
 
 				  case 151:FCEUD_AviRecordTo();break;
 				  case 152:FCEUD_AviStop();break;
@@ -1978,6 +1992,84 @@ void FCEUD_MovieReplayFrom(void)
 	  extern int movie_readonly;
 	  moviereadonly = movie_readonly; // for prefs
   }
+}
+
+INT_PTR CALLBACK DlgLuaScriptDialog(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam) {
+
+	static int *success;
+
+	switch (msg) {
+	case WM_INITDIALOG:
+		{
+
+		// Nothing very useful to do
+		success = (int*)lParam;
+		return TRUE;
+		}
+		break;
+	case WM_COMMAND:
+		switch (LOWORD(wParam)) {
+			case IDOK:
+			{
+				char filename[MAX_PATH];
+				GetDlgItemText(hDlg, 1096, filename, MAX_PATH);
+				if (FCEU_LoadLuaCode(filename)) {
+					*success = 1;
+					// For user's convenience, don't close dialog unless we're done.
+					// Users who make syntax errors and fix/reload will thank us.
+					EndDialog(hDlg, 1);
+				} else {
+					//MessageBox(hDlg, "Couldn't load script.", "Oops", MB_OK); // XXX better if errors are displayed by the Lua code.
+					*success = 0;
+				}
+				return TRUE;
+			}
+			case IDCANCEL:
+			{
+				EndDialog(hDlg, 0);
+				return TRUE;
+			}
+			case 1359:
+			{
+				OPENFILENAME  ofn;
+				char  szFileName[MAX_PATH];
+				szFileName[0] = '\0';
+				ZeroMemory( (LPVOID)&ofn, sizeof(OPENFILENAME) );
+				ofn.lStructSize = sizeof(OPENFILENAME);
+				ofn.hwndOwner = hDlg;
+				ofn.lpstrFilter = "Lua scripts\0*.lua\0All files\0*.*\0\0";
+				ofn.lpstrFile = szFileName;
+				ofn.lpstrDefExt = "lua";
+				ofn.nMaxFile = MAX_PATH;
+				ofn.Flags = OFN_HIDEREADONLY | OFN_FILEMUSTEXIST; // hide previously-ignored read-only checkbox (the real read-only box is in the open-movie dialog itself)
+				if(GetOpenFileName( &ofn ))
+				{
+					SetWindowText(GetDlgItem(hDlg, 1096), szFileName);
+				}
+				//SetCurrentDirectory(movieDirectory);
+				return TRUE;
+			}
+		}
+
+
+	}
+	char message[1024];
+//	sprintf(message, "Unkonwn command %d,%d",msg,wParam);
+	//MessageBox(hDlg, message, TEXT("Range Error"), MB_OK);
+
+//	printf("Unknown entry %d,%d,%d\n",msg,wParam,lParam);
+	// All else, fall off
+	return FALSE;
+
+}
+
+void FCEUD_LuaRunFrom(void)
+{
+  int success = 0;
+
+  StopSound();
+
+  DialogBoxParam(fceu_hInstance, "IDD_LUA_ADD", hAppWnd, DlgLuaScriptDialog,(LPARAM) &success);
 }
 
 static void UpdateRecordDialogPath(HWND hwndDlg, const char* fname)

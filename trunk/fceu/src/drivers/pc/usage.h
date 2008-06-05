@@ -56,5 +56,13 @@ puts("-cpalette x     Load a custom global palette from file x.\n\
 -slstart x	Set the first drawn emulated scanline.  Valid values for x are\n\
 	        0 through 239.\n\
 -slend x	Set the last drawn emulated scanline.  Valid values for x are\n\
-		0 through 239.");
+		0 through 239.\n\
+-playmovie s	Play the movie file \"s\" on startup.\n\
+-loadstate s	Load the savestate file \"s\" on startup (after processing\n\
+		-playmovie, if applicable.)\n\
+-readonly x	Load the movie passed to -playmovie in read-only mode,\n\
+		if x is nonzero.\n\
+-stopframe x	Stop the movie passed to -playmovie after frame x.\n\
+-muteframeadvance x	Suppress sound generated during frame advance,\n\
+		if x is nonzero. (This is on by default.)");
 }

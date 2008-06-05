@@ -19,7 +19,7 @@
  */
 
 #include "common.h"
-#include "..\..\palette.h"
+#include "../../palette.h"
 
 
 
