@@ -25,6 +25,7 @@
 #include "input.h"
 
 #include "../common/cheat.h"
+#include "../../fceulua.h"
 
 /* UsrInputType[] is user-specified.  InputType[] is current
         (game loading can override user settings)
@@ -184,7 +185,7 @@ static void KeyboardCommands(void)
    if(keyonly(F7)) 
    {
     if(is_shift)
-     FCEUI_LoadMovie(NULL,0);
+     FCEUI_LoadMovie(NULL,0,0);
     else
      FCEUI_LoadState(NULL);
    }
@@ -208,6 +209,13 @@ static void KeyboardCommands(void)
   #else
   if(KEY(F12) || KEY(ESCAPE)) CloseGame();
   #endif
+  if(keyonly(L))
+  {
+   if(is_shift)
+    FCEU_ReloadLuaCode();
+   else
+    FCEUD_LuaRunFrom();
+  }
 
   if(gametype==GIT_VSUNI)
   {
@@ -359,7 +367,7 @@ static uint32 powerpadbuf[2]={0,0};
 static uint32 UpdatePPadData(int w)
 {
  if(FCEUI_IsMovieActive()<0)
-   return;
+   return powerpadbuf[w];
 
  uint32 r=0;
  ButtConfig *ppadtsc=powerpadsc[w];

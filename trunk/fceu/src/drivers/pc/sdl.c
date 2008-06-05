@@ -412,7 +412,7 @@ uint64 FCEUD_GetTimeFreq(void)
 
 // dummy functions
 
-#define DUMMY(f) void f(void) {FCEU_DispMessage("Not implemented.");}
+#define DUMMY(f) void f(void) {FCEU_DispMessage("Not implemented:" #f);}
 DUMMY(FCEUD_HideMenuToggle)
 DUMMY(FCEUD_TurboOn)
 DUMMY(FCEUD_TurboOff)
@@ -420,10 +420,20 @@ DUMMY(FCEUD_SaveStateAs)
 DUMMY(FCEUD_LoadStateFrom)
 DUMMY(FCEUD_MovieRecordTo)
 DUMMY(FCEUD_MovieReplayFrom)
-DUMMY(FCEUD_ToggleStatusIcon)
 DUMMY(FCEUD_AviRecordTo)
 DUMMY(FCEUD_AviStop)
-void FCEUI_AviVideoUpdate(const unsigned char* buffer) {FCEU_DispMessage("Not implemented.");} 
-int FCEUD_ShowStatusIcon(void) {FCEU_DispMessage("Not implemented."); return 0; } 
+void FCEUD_UpdateLuaMenus(void) { }
+void FCEUI_AviVideoUpdate(const unsigned char* buffer) {/*FCEU_DispMessage("Not implemented: FCEUI_AviVideoUpdate");*/} 
 int FCEUI_AviIsRecording(void) {return 0;}
+
+static int status_icon=1;
+int FCEUD_ShowStatusIcon(void)
+{
+	return status_icon;
+}
+
+void FCEUD_ToggleStatusIcon(void)
+{
+	status_icon=!status_icon;
+}
 

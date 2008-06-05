@@ -28,6 +28,7 @@
 #include "netplay.h"
 #include "movie.h"
 #include "state.h"
+#include "fceulua.h"
 
 #include "input.h"
 #include "vsuni.h"
@@ -248,13 +249,21 @@ void FCEU_UpdateInput(void)
 			case SI_GAMEPAD:
 				if(!x)
 				{
-					joy[0]=*(uint32 *)InputDataPtr[0];
-					joy[2]=*(uint32 *)InputDataPtr[0] >> 16;
+					joy[0] = FCEU_LuaUsingJoypad(0) ?
+					         FCEU_LuaReadJoypad(0)
+					       : *(uint32 *)InputDataPtr[0];
+					joy[2] = FCEU_LuaUsingJoypad(2) ?
+					         FCEU_LuaReadJoypad(2)
+					       : *(uint32 *)InputDataPtr[0]>>16;
 				}
 				else
 				{
-					joy[1]=*(uint32 *)InputDataPtr[1] >>8;
-					joy[3]=*(uint32 *)InputDataPtr[1] >>24;
+					joy[1] = FCEU_LuaUsingJoypad(1) ?
+					         FCEU_LuaReadJoypad(1)
+					       : *(uint32 *)InputDataPtr[1]>> 8;
+					joy[3] = FCEU_LuaUsingJoypad(3) ?
+					         FCEU_LuaReadJoypad(3)
+					       : *(uint32 *)InputDataPtr[1]>>24;
 				}
 				break;
 			default:
@@ -619,6 +628,8 @@ struct EMUCMDTABLE FCEUI_CommandTable[]=
 	{ EMUCMD_MOVIE_FRAME_DISPLAY_TOGGLE,	EMUCMDTYPE_MOVIE,	FCEUI_MovieToggleFrameDisplay, 0, 0, "Movie Frame Display Toggle", },
 	{ EMUCMD_MOVIE_INPUT_DISPLAY_TOGGLE,	EMUCMDTYPE_MISC,	FCEUI_ToggleInputDisplay, 0, 0, "Toggle Input Display", },
 	{ EMUCMD_MOVIE_ICON_DISPLAY_TOGGLE,		EMUCMDTYPE_MISC,	FCEUD_ToggleStatusIcon, 0, 0, "Toggle Status Icon", },
+
+	{ EMUCMD_SCRIPT_RELOAD,					EMUCMDTYPE_MISC,	FCEU_ReloadLuaCode, 0, 0, "Reload current Lua script", },
 
 	{ EMUCMD_SOUND_TOGGLE,					EMUCMDTYPE_SOUND,	FCEUD_SoundToggle, 0, 0, "Sound Mute Toggle", },
 	{ EMUCMD_SOUND_VOLUME_UP,				EMUCMDTYPE_SOUND,	CommandSoundAdjust, 0, 0, "Sound Volume Up", },

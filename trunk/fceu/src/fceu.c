@@ -47,6 +47,7 @@
 #include  "palette.h"
 #include  "state.h"
 #include  "movie.h"
+#include	"fceulua.h"
 #include  "video.h"
 #include  "input.h"
 #include  "file.h"
@@ -185,11 +186,13 @@ uint8 PAL=0;
 static DECLFW(BRAML)
 {
   RAM[A]=V;
+        FCEU_LuaWriteInform();
 }
 
 static DECLFW(BRAMH)
 {
   RAM[A&0x7FF]=V;
+        FCEU_LuaWriteInform();
 }
 
 static DECLFR(ARAML)
@@ -216,7 +219,8 @@ static void CloseGame(void)
   }
   if(FCEUGameInfo->type!=GIT_NSF)
    FCEU_FlushGameCheats(0,0);
-  GameInterface=GI_CLOSE; // fixes crash when loading game after an error - was "GameInterface(GI_CLOSE);"
+  // What in the name of fucking.... vvv
+  // GameInterface=GI_CLOSE; // fixes crash when loading game after an error - was "GameInterface(GI_CLOSE);"
   ResetExState(0,0);
   CloseGenie();
   free(FCEUGameInfo);
@@ -376,6 +380,7 @@ int FCEUI_Initialize(void)
 
 void FCEUI_Kill(void)
 {
+	FCEU_LuaStop();
 	FCEU_KillVirtualVideo();
 	FCEU_KillGenie();
 
@@ -449,7 +454,7 @@ void SetAutoFireOffset(int offset)
 void AutoFire(void)
 {
 	static int counter = 0;
-	counter = (++counter) % (8*7*5*3);
+	counter = (counter + 1) % (8*7*5*3);
 	//If recording a movie, use the frame # for the autofire so the offset
 	//doesn't get screwed up when loading.
 	if(FCEUMOV_IsPlaying() || FCEUMOV_IsRecording())
@@ -493,6 +498,7 @@ void FCEUI_Emulate(uint8 **pXBuf, int32 **SoundBuf, int32 *SoundBufSize, int ski
 	UpdateRewind();
  }
  
+ FCEU_LuaFrameBoundary();
  FCEU_UpdateInput();
  if(geniestage!=1) FCEU_ApplyPeriodicCheats();
  r=FCEUPPU_Loop(skip);
@@ -517,11 +523,16 @@ void FCEUI_Emulate(uint8 **pXBuf, int32 **SoundBuf, int32 *SoundBufSize, int ski
   #define SO_MUTEFA     16
   extern int soundoptions;
   if(soundoptions&SO_MUTEFA)
+#else
+  extern int muteFrameAdvance;
+  if(muteFrameAdvance)
 #endif
 	*SoundBufSize=0;              // keep sound muted
+#ifdef WIN32
 	UpdateMemWatch();
 	UpdateDebugger();
 	UpdateCheatList();
+#endif
  }
 }
 
@@ -737,9 +748,11 @@ int FCEUI_EmulationPaused(void)
 void FCEUI_ToggleEmulationPause(void)
 {
  EmulationPaused = (EmulationPaused&1)^1;
+#ifdef WIN32
  UpdateMemWatch();
  UpdateDebugger();
  UpdateCheatList();
+#endif
 }
 
 void FCEUI_FrameAdvance(void)

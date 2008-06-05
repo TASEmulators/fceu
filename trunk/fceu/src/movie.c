@@ -15,6 +15,7 @@
 #include "state.h"
 #include "general.h"
 #include "video.h"
+#include "fceulua.h"
 #include "movie.h"
 
 #define MOVIE_MAGIC             0x1a4d4346      // FCM\x1a
@@ -741,7 +742,6 @@ void FCEUMOV_AddJoy(uint8 *js, int SkipFlush)
    if(tmp < 0)
    {
     StopPlayback();
-    
     memcpy(&cur_input_display,js,4);
     return;
    }
@@ -995,7 +995,7 @@ int FCEUMOV_ReadState(FILE* st, uint32 size)
 
   fseek(slots[current - 1], firstframeoffset, SEEK_SET);
   fwrite(moviedata, 1, frameptr, slots[current - 1]);
-  if(!FCEU_BotMode())
+  if(!FCEU_BotMode() && !FCEU_LuaRerecordCountSkip())
   {
 	  rerecord_count++;
   }

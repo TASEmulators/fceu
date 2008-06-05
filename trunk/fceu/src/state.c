@@ -536,9 +536,11 @@ int FCEUSS_Load(char *fname)
 			}
 
 			SaveStateStatus[CurrentState]=1;
+#ifdef WIN32
 			UpdateMemWatch();
 			UpdateDebugger();
 			UpdateCheatList();
+#endif
 		}
 		fclose(st);
 		return(1);
@@ -636,7 +638,7 @@ int FCEUI_SelectState(int w, int show)
  if(show)
  {
   StateShow=180;
-  FCEU_DispMessage("-select state-");
+  FCEU_DispMessage("-state %d selected-", w);
  }
  return oldstate;
 }  

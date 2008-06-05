@@ -40,6 +40,7 @@
 #include "nsf.h"
 #include "input.h"
 #include "vsuni.h"
+#include "fceulua.h"
 
 uint8 *XBuf=NULL;
 uint8 *XBackBuf=NULL;
@@ -121,7 +122,7 @@ int FCEU_InitVirtualVideo(void)
 }
 
 int howlong;
-static char errmsg[65];
+static char errmsg[86];
 
 #include "drawing.h"
 #ifdef FRAMESKIP
@@ -232,6 +233,7 @@ void FCEU_PutImage(void)
 //		if(!movieDrawInAVI)
 	        DrawMessage();
         FCEU_DrawInput(XBuf);
+        FCEU_LuaGui(XBuf);
 
 		//Fancy input display code
 		if(input_display)
