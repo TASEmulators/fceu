@@ -22,3 +22,4 @@ char *FCEU_MakeFName(int type, int id1, char *cd1);
 #define FCEUMKF_REWINDSTATE 15
 #define FCEUMKF_MEMW 16
 #define FCEUMKF_BBOT 17
+#define FCEUMKF_DUMP 18
