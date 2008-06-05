@@ -1,7 +1,7 @@
 AC_INIT([src/fceu.c])
 
-FCEU_VERSION='0.98.26'
-FCEU_VERSION_NUMERIC=9826
+FCEU_VERSION='rerecording-0.98.28'
+FCEU_VERSION_NUMERIC=9828
 
 AC_CANONICAL_HOST
 AC_CANONICAL_TARGET
@@ -46,7 +46,7 @@ AC_DEFINE([WIN32])
 AM_CONDITIONAL(WIN32, true)
 
 if test x$use_nativewin32 = xyes; then
- LIBS="$LIBS -mwindows -lddraw -ldinput -ldsound -lgdi32 -ldxguid -lwinmm -lshell32 -lwsock32 -lcomdlg32 -lole32 -lvfw32 -lavifil32 -lmsacm32 -lcomctl32"
+ LIBS="$LIBS -mwindows -lddraw -ldinput -ldsound -lgdi32 -ldxguid -lwinmm -lshell32 -lwsock32 -lcomdlg32 -lole32 -lvfw32 -lavifil32 -lmsacm32 -lcomctl32 lua51.dll"
  AM_CONDITIONAL(NATIVEWIN32,true)
 else
  AM_CONDITIONAL(USE_SEXYAL, true)
@@ -76,9 +76,12 @@ if test x$use_nativewin32 = xno; then
  AM_PATH_SDL($SDL_VERSION, [:],
              AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!]))
 
- LIBS="$LIBS $SDL_LIBS"
- CFLAGS="-Wall -fomit-frame-pointer $CFLAGS $SDL_CFLAGS"
- CPPFLAGS="-Wall -fomit-frame-pointer $CPPFLAGS $SDL_CFLAGS"
+ dnl Check for Lua
+ CHECK_LUA()
+
+ LIBS="$LIBS $SDL_LIBS $LUA_LIBS"
+ CFLAGS="-Wall -fomit-frame-pointer $CFLAGS $SDL_CFLAGS $LUA_CFLAGS"
+ CPPFLAGS="-Wall -fomit-frame-pointer $CPPFLAGS $SDL_CFLAGS $LUA_CFLAGS"
 
  dnl Check for SDL_net for net play
  HAS_SDL_NET=no

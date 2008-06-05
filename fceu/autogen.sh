@@ -2,4 +2,4 @@
 
 aclocal
 autoconf
-automake -a -c
+automake -a -c --foreign
