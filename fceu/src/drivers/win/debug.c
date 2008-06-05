@@ -489,6 +489,7 @@ int CreateDumpSave(uint32 a1, uint32 a2)
 {
  const char filter[]="Raw dump(*.dmp)\0*.dmp\0";
  char nameo[2048];
+ char *pn=FCEU_GetPath(FCEUMKF_DUMP);
  OPENFILENAME ofn;
 
  memset(&ofn,0,sizeof(ofn));
@@ -499,12 +500,15 @@ int CreateDumpSave(uint32 a1, uint32 a2)
  nameo[0]=0;
  ofn.lpstrFile=nameo;
  ofn.nMaxFile=256;
+ ofn.lpstrInitialDir = pn;
  ofn.Flags=OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
  if(GetSaveFileName(&ofn))
  {
+  free(pn);
   FCEUI_DumpMem(nameo,a1,a2);
   return(1);
  }
+ free(pn);
  return 0;
 }
 
@@ -512,6 +516,7 @@ int LoadSave(uint32 a)
 {
  const char filter[]="Raw dump(*.dmp)\0*.dmp\0";
  char nameo[2048];
+ char *pn=FCEU_GetPath(FCEUMKF_DUMP);
  OPENFILENAME ofn;
 
  memset(&ofn,0,sizeof(ofn));
@@ -522,12 +527,15 @@ int LoadSave(uint32 a)
  nameo[0]=0;
  ofn.lpstrFile=nameo;
  ofn.nMaxFile=256;
+ ofn.lpstrInitialDir = pn;
  ofn.Flags=OFN_EXPLORER|OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
  if(GetOpenFileName(&ofn))
  {
+  free(pn);
   FCEUI_LoadMem(nameo,a,0); /* LL Load */
   return(1);
  }
+ free(pn);
  return 0;
 }
 

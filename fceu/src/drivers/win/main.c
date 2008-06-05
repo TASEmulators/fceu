@@ -43,6 +43,7 @@
 
 #include "memwatch.h"
 #include "basicbot.h"
+#include "../../fceulua.h"
 
 #define VNSCLIP  ((eoptions&EO_CLIPSIDES)?8:0)
 #define VNSWID   ((eoptions&EO_CLIPSIDES)?240:256)
@@ -68,8 +69,8 @@ HRESULT  ddrval;
 FCEUGI *GI=0;
 
 // cheats, misc, nonvol, states, snaps, ..., base
-static char *DOvers[9]={0,0,0,0,0,0,0,0,0};
-static char *defaultds[8]={"cheats","movie","sav","fcs","snaps","","memwatch","basicbot"};
+static char *DOvers[10]={0,0,0,0,0,0,0,0,0,0};
+static char *defaultds[9]={"cheats","movie","sav","fcs","snaps","","memwatch","basicbot","dump"};
 
 static char TempArray[2048];
 static char BaseDirectory[2048];
@@ -77,8 +78,8 @@ static char BaseDirectory[2048];
 void SetDirs(void)
 {
  int x;
- static int jlist[9]=
-  {FCEUIOD_CHEATS,FCEUIOD_MISC,FCEUIOD_NV,FCEUIOD_STATE,FCEUIOD_SNAPS, FCEUMKF_FDSROM, FCEUIOD_MEMW, FCEUIOD_BBOT, FCEUIOD__COUNT};
+ static int jlist[10]=
+  {FCEUIOD_CHEATS,FCEUIOD_MISC,FCEUIOD_NV,FCEUIOD_STATE,FCEUIOD_SNAPS, FCEUMKF_FDSROM, FCEUIOD_MEMW, FCEUIOD_BBOT, FCEUIOD_DUMP, FCEUIOD__COUNT};
 
  FCEUI_SetSnapName(eoptions&EO_SNAPNAME);
 
@@ -86,8 +87,8 @@ void SetDirs(void)
  {
   FCEUI_SetDirOverride(jlist[x], DOvers[x]);  
  }
- if(DOvers[8])
-  FCEUI_SetBaseDirectory(DOvers[8]);
+ if(DOvers[9])
+  FCEUI_SetBaseDirectory(DOvers[9]);
  else
   FCEUI_SetBaseDirectory(BaseDirectory);
 }
@@ -96,10 +97,10 @@ void RemoveDirs(void)
 {
  int x;
 
- for(x=0;x<8;x++)
+ for(x=0;x<9;x++)
   if(!DOvers[x] && defaultds[x] != "")
   {
-   sprintf(TempArray,"%s\\%s",DOvers[8]?DOvers[8]:BaseDirectory,defaultds[x]);
+   sprintf(TempArray,"%s\\%s",DOvers[9]?DOvers[9]:BaseDirectory,defaultds[x]);
    RemoveDirectory(TempArray);
   }
 }
@@ -108,10 +109,10 @@ void CreateDirs(void)
 {
  int x;
 
- for(x=0;x<8;x++)
+ for(x=0;x<9;x++)
   if(!DOvers[x] && defaultds[x] != "")
   {
-   sprintf(TempArray,"%s\\%s",DOvers[8]?DOvers[8]:BaseDirectory,defaultds[x]);
+   sprintf(TempArray,"%s\\%s",DOvers[9]?DOvers[9]:BaseDirectory,defaultds[x]);
    CreateDirectory(TempArray,0);
   }
 }
@@ -407,7 +408,7 @@ doloopy:
 					stopCount = 0;
 				}
 				//if in bot mode, don't idle.  eat the CPU up :)
-				if(!FCEU_BotMode())
+				if(!FCEU_BotMode() && !FCEU_LuaSpeed())
 				{
 					int notAlternateThrottle = !(soundoptions&SO_OLDUP) && soundo && ((NoWaiting&1)?(256*16):fps_scale) >= 64;
 					if(notAlternateThrottle)
@@ -445,6 +446,9 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
 	static int skipcount = 0;
 	int temp_fps_scale=(NoWaiting&1)?(256*16):fps_scale;
 	int maxskip = (temp_fps_scale<=256) ? 0 : temp_fps_scale>>8;
+
+	if (FCEU_LuaFrameSkip() < 0) skipcount = 32767;
+	if (FCEU_LuaFrameSkip() > 0) skipcount = -1;
 
 	int ocount = Count;
 	// apply frame scaling to Count

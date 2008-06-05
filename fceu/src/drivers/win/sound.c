@@ -204,7 +204,7 @@ static int RawWrite(void *data, uint32_t len)
   ToWritePos=(ToWritePos+curlen)%DSBufferSize;
 
   len-=curlen;
-  (uint8_t *) data+=curlen;
+  data = ((uint8_t *)data + curlen);
 
   if(len && !NoWaiting && (fps_scale <= 256 || (soundoptions&SO_OLDUP)))
    Sleep(1); // do some extra sleeping if we think there's time and we're not scaling up the FPS or in turbo mode

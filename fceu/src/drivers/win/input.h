@@ -47,7 +47,6 @@ void SetEmulationSpeed(int type);
 int FCEUD_TestCommandState(int c);
 void FCEUD_UpdateInput();
 
-extern const char* ScanNames[];
 extern CFGSTRUCT HotkeyConfig[];
 #endif
 

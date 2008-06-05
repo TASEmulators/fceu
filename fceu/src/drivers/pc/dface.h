@@ -17,7 +17,7 @@ uint8 *GetBaseDirectory(void);
 
 int InitSound(FCEUGI *gi);
 void WriteSound(int32 *Buffer, int Count);
-int KillSound(void);
+void KillSound(void);
 uint32 GetMaxSound(void);
 uint32 GetWriteSound(void);
 

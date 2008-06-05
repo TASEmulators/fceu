@@ -31,6 +31,7 @@
 
 #include "main.h"
 #include "throttle.h"
+#include "../../fceulua.h"
 
 #include "../common/cheat.h"
 
@@ -157,14 +158,14 @@ static void CreateDirs(void)
 
  #ifdef WIN32
  mkdir(DrBaseDirectory);
- for(x=0;x<6;x++)
+ for(x=0;x<7;x++)
  {
   sprintf(tdir,"%s"PSS"%s",DrBaseDirectory,subs[x]);
   mkdir(tdir);
  }
  #else
  mkdir(DrBaseDirectory,S_IRWXU);
- for(x=0;x<6;x++)
+ for(x=0;x<7;x++)
  {
   sprintf(tdir,"%s"PSS"%s",DrBaseDirectory,subs[x]);
   mkdir(tdir,S_IRWXU);
@@ -208,6 +209,9 @@ static void CloseStuff(int signum)
 }
 #endif
 
+char *initialMovie, *initialState;
+int initialReadOnlyFlag = 1, muteFrameAdvance = 1, initialStopFrame = 0;
+
 static void DoArgs(int argc, char *argv[])
 {
 	int x;
@@ -236,6 +240,11 @@ static void DoArgs(int argc, char *argv[])
 	 {"-nothrottle",0,&eoptions,0x8000|EO_NOTHROTTLE},
          {"-slstart",0,&srendlinev[0],0},{"-slend",0,&erendlinev[0],0},
          {"-slstartp",0,&srendlinev[1],0},{"-slendp",0,&erendlinev[1],0},
+         {"-playmovie",0,&initialMovie,0x4001},
+         {"-loadstate",0,&initialState,0x4001},
+         {"-readonly",0,&initialReadOnlyFlag,0},
+         {"-stopframe",0,&initialStopFrame,0},
+         {"-muteframeadvance",0,&muteFrameAdvance,0},
 	 {0,(int *)InputArgs,0,0},
 	 {0,(int *)DriverArgs,0,0},
 	 {0,0,0,0}
@@ -302,6 +311,18 @@ int LoadGame(const char *path)
 	#endif
 
 	FCEUD_NetworkConnect();
+	if (initialMovie != NULL)
+	{
+		FCEUI_LoadMovie(initialMovie, initialReadOnlyFlag, initialStopFrame);
+		free(initialMovie);
+		initialMovie = NULL;
+	}
+	if (initialState != NULL)
+	{
+		FCEUI_LoadState(initialState);
+		free(initialState);
+		initialState = NULL;
+	}
 	return 1;
 }
 
@@ -324,6 +345,18 @@ int CloseGame(void)
 	return(1);
 }
 
+/* Unloads running script, prompts for a new one, and runs it if it's valid. */
+void FCEUD_LuaRunFrom()
+{
+	char filename[1024] = "";
+	FCEU_LuaStop();
+	fprintf(stderr, "Filename to load: ");
+	fgets(filename,sizeof(filename), stdin);
+	while (filename[strlen(filename)-1] == '\n' || filename[strlen(filename)-1] == '\r')
+		filename[strlen(filename)-1] = 0;
+	if (strlen(filename) > 0)
+		FCEU_LoadLuaCode(filename);
+}
 void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count);
 
 void DoFun(void)
@@ -336,6 +369,8 @@ void DoFun(void)
          
          #ifdef FRAMESKIP
          fskipc=(fskipc+1)%(frameskip+1);
+         if (FCEU_LuaFrameSkip() < 0) fskipc = 0;
+         if (FCEU_LuaFrameSkip() > 0) fskipc = 1;
          #endif
          
          if(NoWaiting) {gfx=0;}
@@ -522,7 +557,7 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
  }
  else
  {
-  if(!NoWaiting && (!(eoptions&EO_NOTHROTTLE) || FCEUI_EmulationPaused()))
+  if(!NoWaiting && (!(eoptions&EO_NOTHROTTLE) || FCEUI_EmulationPaused()) && !FCEU_LuaSpeed())
    SpeedThrottle();
   if(XBuf && (inited&4))
   {
@@ -539,6 +574,12 @@ void FCEUD_Update(uint8 *XBuf, int32 *Buffer, int Count)
  //if(Count)
  // WriteSound(Buffer,Count,NoWaiting);
  //FCEUD_UpdateInput();
+}
+
+
+void FCEUD_ResetStopframe(int opt)
+{
+ FCEUMOV_ResetStopframe(opt);
 }
 
 
