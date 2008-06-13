@@ -1655,15 +1655,44 @@ void FCEU_LuaGui(uint8 *XBuf) {
 		numTries = 1000;
 		int ret = lua_pcall(LUA, 0, 0, 0);
 		if (ret != 0) {
+			int kill = 0;
 #ifdef WIN32
+			char message[1024];
+			int ret;
 			StopSound();
-			MessageBox(hAppWnd, lua_tostring(LUA, -1), "Lua Error in GUI function", MB_OK);
+			sprintf(message, "Lua error in gui.register function:\n%s\nFunction has been unregistered. Kill script?", lua_tostring(LUA, -1));
+			ret = MessageBox(hAppWnd, message, "Lua Error in GUI function", MB_YESNO);
+
+			if (ret == IDYES) {
+				kill = 1;
+			}
 #else
-			fprintf(stderr, "Lua error in gui.register function: %s\n", lua_tostring(LUA, -1));
+			fprintf(stderr, "Lua error in gui.register function: %sFunction has been unregistered. Kill script?\n", lua_tostring(LUA, -1));
+			// XXX Do this more intelligently than by using cut&paste
+			char buffer[64];
+			while (TRUE) {
+				fprintf(stderr, "(y/n): ");
+				fgets(buffer, sizeof(buffer), stdin);
+				if (buffer[0] == 'y' || buffer[0] == 'Y') {
+					kill = 1;
+					break;
+				}
+				
+				if (buffer[0] == 'n' || buffer[0] == 'N')
+					break;
+			}
 #endif
-			// This is grounds for trashing the function
-			lua_pushnil(LUA);
-			lua_setfield(LUA, LUA_REGISTRYINDEX, guiCallbackTable);
+
+			// This is grounds for trashing the function, or worse
+			if (kill) {
+				FCEU_LuaStop();
+				return;
+			}
+			else
+			{
+				lua_pushnil(LUA);
+				lua_setfield(LUA, LUA_REGISTRYINDEX, guiCallbackTable);
+			}
 		
 		}
 	}
