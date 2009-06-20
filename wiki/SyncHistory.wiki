@@ -1,0 +1,19 @@
+#FCEU version history and sync summaries
+
+==Introduction==
+[http://code.google.com/p/fceu/wiki/FCM .fcm] files made with older versions of FCEU may desync on FCEU.28.  This page describes a brief history of older FCEU rerecording versions and sync differences.  All older versions are available in the [http://code.google.com/p/fceu/downloads/list downloads section].
+
+----
+===FCEU.12===
+This was the first widely used FCEU rerecording branch.  TAS features were implemented by Blip.  Nearly all NES [http://TASvideos.org TAS] movies made in 2004-2005 were made with this version.
+
+===FCEU.13===
+Many new features added by Nitsuja.  However, some sync differences were introduced.  Some movies (such as Dragon Warrior 4) made with .12 no longer synced
+
+===FCEU.15===
+More new features/enhancements/bug fixes added by Nitsuja.  There maybe some sync differences between .13 and .15.  Few movies were made with .13 since the .15 release was so soon after.
+
+===FCEU.16===
+New TAS tools added by luke including basicbot & memory watch.  However, it introduced sync differences compared to .15
+
+This was the primary version used for many movies in 2005 & 2006.  All versions of FCEU (.17-.28) should have the same sync.
