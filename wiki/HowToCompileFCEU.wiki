@@ -17,7 +17,7 @@ You can find it at http://www.zlib.net/
 http://www.mingw.org/download.shtml
 
 ===FCEU source===
-Which I think you should have since you want to compile it. ;)
+Which I think you should have since you want to compile it! ;)
 
 ----
 =Things to do=
