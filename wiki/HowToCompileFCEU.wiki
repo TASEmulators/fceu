@@ -1,3 +1,5 @@
+#summary Compiling FCEU on Windows
+
 ----
 =Things you need=
 
