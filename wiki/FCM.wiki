@@ -1,4 +1,6 @@
-#fcm is the movie capture format of FCE-Ultra
+#summary FCM file format description
+
+FCM is the movie capture format of FCE-Ultra
 
 ==FCM file format description==
 FCM file consists of a variable-length header and various blocks that depend on settings. The header must be a minimum of 56 bytes. The first 32 bytes are interpreted the same between v1 and v2 movies. The header and file layout are completely different between blip's patched version and the unpatched official version of FCEU. Only the savestate and controller data are the same. 
