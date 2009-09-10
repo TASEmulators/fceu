@@ -95,4 +95,4 @@ The delta byte(s) indicate the number of emulator frames between this update and
   256-65535      2
   65536-(2^24-1) 3
 }}}
-FCEU emits a "dummy" command of 0 (?) if the current delta is about to overflow.
+FCEU emits a "do nothing" command if the current delta is about to overflow.
