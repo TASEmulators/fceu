@@ -1,4 +1,4 @@
-#FCEU version history and sync summaries
+#summary FCEU version history and sync summaries
 
 ==Introduction==
 [http://code.google.com/p/fceu/wiki/FCM .fcm] files made with older versions of FCEU may desync on FCEU.28.  This page describes a brief history of older FCEU rerecording versions and sync differences.  All older versions are available in the [http://code.google.com/p/fceu/downloads/list downloads section].
