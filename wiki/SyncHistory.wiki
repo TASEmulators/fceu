@@ -20,4 +20,4 @@ This was the primary version used for many movies in 2005 & 2006.
 
 ===FCEU.17-FCEU.28===
 All versions of FCEU (.17-.28) should have the same sync.
-FCEU.28 is the last version made as the project was abandoned in favor of [fceux.com FCEUX]
+FCEU.28 is the last version made as the project was abandoned in favor of [http://fceux.com FCEUX]
