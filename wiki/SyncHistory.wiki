@@ -7,6 +7,8 @@
 ===FCEU.12===
 This was the first widely used FCEU rerecording branch.  TAS features were implemented by Blip.  Nearly all NES [http://TASvideos.org TAS] movies made in 2004-2005 were made with this version.
 
+Note: If capturing AVI's of these older movies, use the [http://fceu.googlecode.com/files/fceu-0.98.12-avifix.src.zip AVI capture fix] version of .12
+
 ===FCEU.13===
 Many new features added by Nitsuja.  However, some sync differences were introduced.  Some movies (such as Dragon Warrior 4) made with .12 no longer synced
 
